@@ -36,7 +36,20 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         final TextView timerView = (TextView) findViewById(R.id.timerView);
         timerView.setTypeface(myfont);
 
+        final TextView levelOneRulesView = (TextView) findViewById(R.id.levelOneRulesView);
+        levelOneRulesView.setTypeface(myfont);
+
+
         // Start of buttons
+        final TextView resetView = (TextView) findViewById(R.id.resetView);
+        resetView.setTypeface(myfont);
+        resetView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onDestroy();
+                startActivity(getIntent());
+            }
+        });
+
         final ImageButton tapBtn = (ImageButton) findViewById(R.id.tapBtn);
         tapBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

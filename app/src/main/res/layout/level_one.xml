@@ -22,16 +22,15 @@
     </TableLayout>
 
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="200dp"
+        android:layout_height="43dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Begin"
+        android:text="Begin Level 1"
         android:gravity="center"
         android:id="@+id/tapCountTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:textColor="#000000"
-        android:layout_alignParentEnd="false" />
+        android:layout_above="@+id/tableLayout"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,6 +43,32 @@
         android:textColor="#000000"
         android:layout_above="@+id/tableLayout"
         android:layout_centerHorizontal="true"
-        android:textSize="24dp" />
+        android:textSize="36dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Reset"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="@drawable/layout_red_bg"
+        android:id="@+id/resetView"
+        android:layout_below="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="To beat Level 1 you have 5 seconds to tap at least 25 times... Easy Peezy!"
+        android:textColor="#000000"
+        android:id="@+id/levelOneRulesView"
+        android:textSize="18dp"
+        android:textIsSelectable="true"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/tableLayout"
+        android:layout_marginEnd="24dp" />
 
 </RelativeLayout>

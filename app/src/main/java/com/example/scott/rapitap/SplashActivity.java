@@ -2,21 +2,22 @@ package com.example.scott.rapitap;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 public class SplashActivity extends Activity {
-
-    private TableRow row1;
-    private TableRow row2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +27,36 @@ public class SplashActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 setContentView(R.layout.activity_splash);
 
-        final ImageButton newGameButton = (ImageButton) findViewById(R.id.newGameButton);
-        newGameButton.setOnClickListener(new View.OnClickListener() {
+        // Import font
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/Sprayerz.otf");
+
+        // Start Buttons
+        final TextView newGameTextView = (TextView) findViewById(R.id.newGameTextView);
+        newGameTextView.setTypeface(myfont);
+        newGameTextView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
                 startActivity(levelOneIntent);
             }
         });
 
+        final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+        resumeGameTextView.setTypeface(myfont);
+        resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
+                //startActivity(levelOneIntent);
+            }
+        });
+
+        final TextView highScoreTextView = (TextView) findViewById(R.id.highScoreTextView);
+        highScoreTextView.setTypeface(myfont);
+        highScoreTextView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
+                //startActivity(levelOneIntent);
+            }
+        });
     }
 
     @Override
