@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_black_bg"
+    tools:context=".SplashActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TableRow
+            android:background="@drawable/layout_blue_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/rapitaptitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="18"
+                android:background="@drawable/rapitaptitle" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row1"
+            android:background="@drawable/layout_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/newGameButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_column="18"
+                android:background="@drawable/newgamebutton" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row2"
+            android:background="@drawable/layout_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/resumeGameButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_column="18"
+                android:background="@drawable/resumegamebutton" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>
