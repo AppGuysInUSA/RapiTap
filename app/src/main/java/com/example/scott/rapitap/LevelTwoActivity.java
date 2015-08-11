@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.view.View.OnClickListener;
 
 
-public class LevelOneActivity extends Activity implements OnClickListener {
+public class LevelTwoActivity extends Activity implements OnClickListener {
 
     // Start counter variable and firstClick trigger
     int tapCount = 0;
@@ -29,7 +29,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.level_one);
+        setContentView(R.layout.level_two);
 
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);
@@ -70,7 +70,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         mainMenuBtnView.setTypeface(myfont);
         mainMenuBtnView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent mainMenuIntent = new Intent(LevelOneActivity.this, SplashActivity.class);
+                Intent mainMenuIntent = new Intent(LevelTwoActivity.this, SplashActivity.class);
                 startActivity(mainMenuIntent);
             }
         });
@@ -82,7 +82,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                 tapCountTextView.setText(String.valueOf(tapCount));
 
                 if (firstClick == 1) {
-                    new CountDownTimer(5000, 1000) {
+                    new CountDownTimer(4000, 1000) {
 
                         public void onTick(long millisUntilFinished) {
                             timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000);
@@ -100,22 +100,14 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                     tapCount++;
                 }
 
-                if (timerView.getText() == ("Times Up!") && tapCount < 25) {
-                    roundOverView.setText("Try again!");
+                if (timerView.getText() == ("Times Up!") && tapCount < 40) {
+                    roundOverView.setText("Not quite...Try again!");
                 }
 
-                if (timerView.getText() == ("Times Up!") && tapCount >= 25) {
-                    roundOverView.setText("Good Job!");
+                if (timerView.getText() == ("Times Up!") && tapCount >= 40) {
+                    roundOverView.setText("Awesome!");
                     nextLevelView.setAlpha(1);
                 }
-
-                nextLevelView.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        Intent levelTwoIntent = new Intent(LevelOneActivity.this, LevelTwoActivity.class);
-                        finish();
-                        startActivity(levelTwoIntent);
-                    }
-                });
             }
         });
     }
@@ -125,3 +117,4 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
     }
 }
+

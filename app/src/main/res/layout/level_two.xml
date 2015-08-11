@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layout_bg">
+    android:background="@drawable/layout_bg_green">
 
     <TableLayout
         android:layout_width="150dp"
@@ -97,7 +97,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="To beat Level 1 you have 5 seconds to tap at least 25 times... Easy Peezy!"
+        android:text="You&apos;re just warming up.. Level 2 you have 4 seconds to tap at least 40 times... Not so easy!"
         android:textColor="#000000"
         android:id="@+id/levelOneRulesView"
         android:textSize="18dp"
@@ -112,9 +112,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:id="@+id/roundOverView"
+        android:textIsSelectable="true"
         android:layout_alignBottom="@+id/tapCountTextView"
-        android:layout_alignStart="@+id/levelOneRulesView"
-        android:phoneNumber="true" />
+        android:layout_alignStart="@+id/levelOneRulesView" />
 
     <TextView
         android:layout_width="wrap_content"
