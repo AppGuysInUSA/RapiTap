@@ -70,6 +70,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         mainMenuBtnView.setTypeface(myfont);
         mainMenuBtnView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                finish();
                 Intent mainMenuIntent = new Intent(LevelOneActivity.this, SplashActivity.class);
                 startActivity(mainMenuIntent);
             }
@@ -102,11 +103,17 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
                 if (timerView.getText() == ("Times Up!") && tapCount < 25) {
                     roundOverView.setText("Try again!");
+                    resetView.setText("Try Again");
                 }
 
                 if (timerView.getText() == ("Times Up!") && tapCount >= 25) {
                     roundOverView.setText("Good Job!");
                     nextLevelView.setAlpha(1);
+                    //  hiScoreTextView.setText(Integer.toString(tapCount));
+
+                    //TextView tv = (TextView) findViewById(R.id.hiScoreTextView);
+                    //tv.setText(String.valueOf(tapCount));
+
                 }
 
                 nextLevelView.setOnClickListener(new View.OnClickListener() {
