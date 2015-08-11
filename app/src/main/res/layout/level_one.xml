@@ -33,6 +33,17 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:layout_width="200dp"
+        android:layout_height="43dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="High Score"
+        android:gravity="center"
+        android:id="@+id/hiScoreTitleTextView"
+        android:textColor="#000000"
+        android:layout_alignTop="@+id/tapCountTextView"
+        android:layout_toEndOf="@+id/tableLayout" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -60,6 +71,18 @@
 
     <TextView
         android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Next Level"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="@drawable/layout_blue_bg"
+        android:id="@+id/nextLevelView"
+        android:layout_alignTop="@+id/resetView"
+        android:layout_toEndOf="@+id/tapCountTextView" />
+
+    <TextView
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="To beat Level 1 you have 5 seconds to tap at least 25 times... Easy Peezy!"
@@ -70,5 +93,26 @@
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/tableLayout"
         android:layout_marginEnd="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:id="@+id/roundOverView"
+        android:layout_alignTop="@+id/resetView"
+        android:layout_alignStart="@+id/levelOneRulesView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="---"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:id="@+id/hiScoreTextView"
+        android:layout_below="@+id/timerView"
+        android:layout_toEndOf="@+id/tapCountTextView"
+        android:layout_marginStart="22dp" />
 
 </RelativeLayout>

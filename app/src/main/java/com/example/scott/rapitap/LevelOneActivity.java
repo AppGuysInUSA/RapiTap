@@ -1,6 +1,8 @@
 package com.example.scott.rapitap;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -33,8 +35,21 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/Sprayerz.otf");
         tapCountTextView.setTypeface(myfont);
 
+        final TextView roundOverView = (TextView) findViewById(R.id.roundOverView);
+        roundOverView.setTypeface(myfont);
+
+        final TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
+        nextLevelView.setTypeface(myfont);
+        nextLevelView.setAlpha(0);
+
         final TextView timerView = (TextView) findViewById(R.id.timerView);
         timerView.setTypeface(myfont);
+
+        final TextView hiScoreTitleTextView = (TextView) findViewById(R.id.hiScoreTitleTextView);
+        hiScoreTitleTextView.setTypeface(myfont);
+
+        final TextView hiScoreTextView = (TextView) findViewById(R.id.hiScoreTextView);
+        hiScoreTextView.setTypeface(myfont);
 
         final TextView levelOneRulesView = (TextView) findViewById(R.id.levelOneRulesView);
         levelOneRulesView.setTypeface(myfont);
@@ -60,22 +75,33 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                     new CountDownTimer(5000, 1000) {
 
                         public void onTick(long millisUntilFinished) {
-                            timerView.setText("seconds remaining: " + millisUntilFinished / 1000);
+                            timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000);
                             tapBtn.setBackgroundResource(R.drawable.btn_states);
                         }
 
                         public void onFinish() {
-                            timerView.setText("done!");
+                            timerView.setText("Times Up!");
                             tapBtn.setBackgroundResource(R.drawable.redbutton);
                         }
                     }.start();
                 }
 
-                if (timerView.getText() != ("done!")) {
+                if (timerView.getText() != ("Times Up!")) {
                     tapCount++;
+                }
+
+                if (timerView.getText() == ("Times Up!") && tapCount < 25) {
+                    roundOverView.setText("Try again!");
+                }
+
+                if (timerView.getText() == ("Times Up!") && tapCount >= 25) {
+                    roundOverView.setText("Good Job!");
+                    nextLevelView.setAlpha(1);
                 }
             }
         });
+
+        //setting preferences
 
     }
 
