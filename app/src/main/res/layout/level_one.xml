@@ -5,127 +5,132 @@
     android:background="@drawable/layout_bg">
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/tableLayout">
+        android:layout_centerVertical="true">
 
 
         <ImageButton
+            android:id="@+id/tapBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/greenbutton"
-            android:id="@+id/tapBtn" />
+            android:background="@drawable/greenbutton" />
 
 
     </TableLayout>
 
     <TextView
-        android:layout_width="200dp"
-        android:layout_height="43dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Begin Level 1"
-        android:gravity="center"
         android:id="@+id/tapCountTextView"
-        android:textColor="#000000"
-        android:layout_above="@+id/tableLayout"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
         android:layout_width="200dp"
         android:layout_height="43dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="High Score"
-        android:gravity="center"
-        android:id="@+id/hiScoreTitleTextView"
-        android:textColor="#000000"
-        android:layout_alignTop="@+id/tapCountTextView"
-        android:layout_toEndOf="@+id/tableLayout" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="00:00"
-        android:gravity="center"
-        android:id="@+id/timerView"
-        android:layout_marginBottom="44dp"
-        android:textColor="#000000"
         android:layout_above="@+id/tableLayout"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Begin Level 1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/hiScoreTitleTextView"
+        android:layout_width="200dp"
+        android:layout_height="43dp"
+        android:layout_alignTop="@+id/tapCountTextView"
+        android:layout_toEndOf="@+id/tableLayout"
+        android:gravity="center"
+        android:text="High Score"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/timerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="44dp"
+        android:gravity="center"
+        android:text="00:00"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
         android:textSize="36dp" />
 
     <TextView
+        android:id="@+id/resetView"
         android:layout_width="100dp"
         android:layout_height="35dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Reset"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:background="@drawable/layout_red_bg"
-        android:id="@+id/resetView"
         android:layout_below="@+id/tableLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
+        android:layout_centerVertical="true"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/layout_red_bg"
+        android:gravity="center"
+        android:text="Reset"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="20dp" />
 
     <TextView
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Next Level"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:background="@drawable/layout_blue_bg"
         android:id="@+id/nextLevelView"
-        android:layout_alignTop="@+id/resetView"
-        android:layout_toEndOf="@+id/tapCountTextView" />
-
-    <TextView
         android:layout_width="150dp"
         android:layout_height="35dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Main Menu"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:background="@drawable/layout_blue_bg"
-        android:id="@+id/mainMenuBtnView"
         android:layout_alignTop="@+id/resetView"
-        android:layout_alignStart="@+id/levelOneRulesView" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/tapCountTextView"
+        android:background="@drawable/layout_blue_bg"
+        android:gravity="center"
+        android:text="Next Level"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
 
     <TextView
+        android:id="@+id/mainMenuBtnView"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/levelOneRulesView"
+        android:layout_alignTop="@+id/resetView"
+        android:background="@drawable/layout_blue_bg"
+        android:gravity="center"
+        android:text="Main Menu"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/levelOneRulesView"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="To beat Level 1 you have 5 seconds to tap at least 25 times... Easy Peezy!"
-        android:textColor="#000000"
-        android:id="@+id/levelOneRulesView"
-        android:textSize="18dp"
-        android:textIsSelectable="true"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="24dp"
         android:layout_toStartOf="@+id/tableLayout"
-        android:layout_marginEnd="24dp" />
+        android:text="To beat Level 1 you have 5 seconds to tap at least 25 times... Easy Peezy!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textIsSelectable="true"
+        android:textSize="18dp" />
 
     <TextView
+        android:id="@+id/roundOverView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000"
-        android:id="@+id/roundOverView"
         android:layout_alignBottom="@+id/tapCountTextView"
         android:layout_alignStart="@+id/levelOneRulesView"
-        android:phoneNumber="true" />
+        android:phoneNumber="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
 
     <TextView
+        android:id="@+id/hiScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="---"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:id="@+id/hiScoreTextView"
         android:layout_below="@+id/timerView"
+        android:layout_marginStart="22dp"
         android:layout_toEndOf="@+id/tapCountTextView"
-        android:layout_marginStart="22dp" />
+        android:gravity="center"
+        android:text="---"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000" />
 
 </RelativeLayout>

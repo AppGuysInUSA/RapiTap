@@ -33,7 +33,7 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
 
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);
-        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/Sprayerz.otf");
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         tapCountTextView.setTypeface(myfont);
 
         final TextView roundOverView = (TextView) findViewById(R.id.roundOverView);
@@ -101,7 +101,7 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
                 }
 
                 if (timerView.getText() == ("Times Up!") && tapCount < 40) {
-                    roundOverView.setText("Not quite...Try again!");
+                    roundOverView.setText("Not quite!");
                 }
 
                 if (timerView.getText() == ("Times Up!") && tapCount >= 40) {

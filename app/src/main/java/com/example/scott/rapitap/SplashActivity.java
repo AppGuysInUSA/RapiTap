@@ -25,10 +25,10 @@ public class SplashActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_splash);
 
         // Import font
-        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/Sprayerz.otf");
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
 
         // Start Buttons
         final TextView newGameTextView = (TextView) findViewById(R.id.newGameTextView);
