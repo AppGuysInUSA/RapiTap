@@ -100,9 +100,6 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                 }
             }
         });
-
-        //setting preferences
-
     }
 
     @Override
