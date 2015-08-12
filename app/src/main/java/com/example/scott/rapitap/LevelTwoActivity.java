@@ -148,13 +148,13 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
     }
 
     private void saveScore() {
-        SharedPreferences scoreSharedPref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
-        int currentHighScore = scoreSharedPref.getInt("theScore", 0);
+        SharedPreferences levelTwoScoreSharedPref = getSharedPreferences("levelTwoUserScore", Context.MODE_PRIVATE);
+        int currentHighScore = levelTwoScoreSharedPref.getInt("levelTwoScore", 0);
 
         if(newScore > currentHighScore ){
-            SharedPreferences.Editor scoreEditor = scoreSharedPref.edit();
-            scoreEditor.putInt("theScore", newScore);
-            scoreEditor.apply();
+            SharedPreferences.Editor levelTwoScoreEditor = levelTwoScoreSharedPref.edit();
+            levelTwoScoreEditor.putInt("levelTwoScore", newScore);
+            levelTwoScoreEditor.apply();
         }
 
        // Toast.makeText(this, "Score Saved!", Toast.LENGTH_LONG).show();
@@ -163,9 +163,9 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
     private void displayScore() {
 
         TextView hiScoreTextView = (TextView) findViewById(R.id.hiScoreTextView);
-        SharedPreferences scoreSharedPref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+        SharedPreferences levelTwoScoreSharedPref = getSharedPreferences("levelTwoUserScore", Context.MODE_PRIVATE);
 
-        int hiScore = scoreSharedPref.getInt("theScore", 0);
+        int hiScore = levelTwoScoreSharedPref.getInt("levelTwoScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
     }
 
