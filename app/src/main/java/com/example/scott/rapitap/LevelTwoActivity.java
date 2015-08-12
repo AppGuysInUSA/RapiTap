@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+//import com.google.android.gms.ads.AdView;
+//import com.google.android.gms.ads.AdRequest;
 
 
 public class LevelTwoActivity extends Activity implements OnClickListener {
@@ -22,6 +24,7 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
     // Start counter variable and firstClick trigger
     int tapCount = 0;
     int firstClick = 0;
+    boolean roundStarted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,11 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.level_two);
+
+/*        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+*/
 
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);
@@ -71,6 +79,7 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
         mainMenuBtnView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent mainMenuIntent = new Intent(LevelTwoActivity.this, SplashActivity.class);
+                finish();
                 startActivity(mainMenuIntent);
             }
         });
@@ -78,7 +87,10 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
         final ImageButton tapBtn = (ImageButton) findViewById(R.id.tapBtn);
         tapBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 firstClick++;
+                tapCount++;
+                //long timePassed = 0;
                 tapCountTextView.setText(String.valueOf(tapCount));
 
                 if (firstClick == 1) {
@@ -87,26 +99,41 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
                         public void onTick(long millisUntilFinished) {
                             timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000);
                             tapBtn.setBackgroundResource(R.drawable.btn_states);
+                            roundStarted = true;
+
+                            if (millisUntilFinished  > 2000 && tapCount > 10){
+                                roundOverView.setText("Blazing!");
+                                tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
+                            }
+
+                            if (millisUntilFinished  > 1000 && tapCount > 25){
+                                roundOverView.setText("Blazing!");
+                                tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
+                            }
                         }
 
                         public void onFinish() {
                             timerView.setText("Times Up!");
                             tapBtn.setBackgroundResource(R.drawable.redbutton);
+
+                            if (timerView.getText() == ("Times Up!") && tapCount < 40) {
+                                roundOverView.setText("Not quite!");
+                                resetView.setText("Try Again");
+                                roundStarted = false;
+                            }
+
+                            if (timerView.getText() == ("Times Up!") && tapCount >= 40) {
+                                roundOverView.setText("Awesome!");
+                                nextLevelView.setAlpha(1);
+                                roundStarted = false;
+                            }
+
+                            if (!roundStarted) {
+                                tapBtn.setOnClickListener(null);
+                                //timePassed++;
+                            }
                         }
                     }.start();
-                }
-
-                if (timerView.getText() != ("Times Up!")) {
-                    tapCount++;
-                }
-
-                if (timerView.getText() == ("Times Up!") && tapCount < 40) {
-                    roundOverView.setText("Not quite!");
-                }
-
-                if (timerView.getText() == ("Times Up!") && tapCount >= 40) {
-                    roundOverView.setText("Awesome!");
-                    nextLevelView.setAlpha(1);
                 }
             }
         });

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">RapiTap</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">SETTINGS</string>
+    <string name="adsText">Ads Go Here</string>
+    <string name="banner_ad_unit_id">ca-app-pub-6058611707562553/4593048425</string>
+
 </resources>
