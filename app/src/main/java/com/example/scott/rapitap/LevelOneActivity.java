@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 //import com.google.android.gms.ads.AdView;
 //import com.google.android.gms.ads.AdRequest;
 
@@ -24,6 +25,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
     // Start counter variable and firstClick trigger
     int tapCount = 0;
+    int newScore = 0;
     int firstClick = 0;
     boolean roundStarted;
 
@@ -63,6 +65,8 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         final TextView levelOneRulesView = (TextView) findViewById(R.id.levelOneRulesView);
         levelOneRulesView.setTypeface(myfont);
+
+        displayScore();
 
 
         // Start of buttons
@@ -110,6 +114,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                         public void onFinish() {
                             timerView.setText("Times Up!");
                             tapBtn.setBackgroundResource(R.drawable.redbutton);
+                            newScore = tapCount;
 
                             if (timerView.getText() == ("Times Up!") && tapCount <= 24) {
                                 roundOverView.setText("Yikes!");
@@ -131,6 +136,9 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                                 tapBtn.setOnClickListener(null);
                                 //timePassed++;
                             }
+
+                            saveScore();
+                            displayScore();
                         }
                     }.start();
                 }
@@ -153,6 +161,28 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                 });
             }
         });
+    }
+
+    private void saveScore() {
+        SharedPreferences levelOneScoreSharedPref = getSharedPreferences("levelOneUserScore", Context.MODE_PRIVATE);
+        int currentHighScore = levelOneScoreSharedPref.getInt("levelOneScore", 0);
+
+        if(newScore > currentHighScore ){
+            SharedPreferences.Editor levelOneScoreEditor = levelOneScoreSharedPref.edit();
+            levelOneScoreEditor.putInt("levelOneScore", newScore);
+            levelOneScoreEditor.apply();
+        }
+
+        // Toast.makeText(this, "Score Saved!", Toast.LENGTH_LONG).show();
+    }
+
+    private void displayScore() {
+
+        TextView hiScoreTextView = (TextView) findViewById(R.id.hiScoreTextView);
+        SharedPreferences levelOneScoreSharedPref = getSharedPreferences("levelOneUserScore", Context.MODE_PRIVATE);
+
+        int hiScore = levelOneScoreSharedPref.getInt("levelOneScore", 0);
+        hiScoreTextView.setText(String.valueOf(hiScore));
     }
 
     @Override

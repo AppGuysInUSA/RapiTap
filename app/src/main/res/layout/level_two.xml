@@ -126,14 +126,14 @@
         android:id="@+id/hiScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timerView"
-        android:layout_marginStart="22dp"
-        android:layout_toEndOf="@+id/tapCountTextView"
         android:gravity="center"
-        android:text="---"
+        android:text="----------"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#000000" />
-
+        android:textColor="#000000"
+        android:layout_below="@+id/hiScoreTitleTextView"
+        android:layout_alignEnd="@+id/nextLevelView"
+        android:layout_marginEnd="47dp" />
+<!--
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -150,5 +150,5 @@
         </com.google.android.gms.ads.AdView>
 
     </RelativeLayout>
-
+-->
 </RelativeLayout>
