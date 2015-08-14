@@ -47,7 +47,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int levelFiveScore = scorePref.getInt("levelFiveScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        if(levelUnlocked.equals("six") || levelFiveScore > 14){
+        if(levelUnlocked.equals("five") || levelFiveScore > 14){
 
             TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
             nextLevelView.setTypeface(myfont);
@@ -121,16 +121,17 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
                     new CountDownTimer(1000, 1000) {
 
                         public void onTick(long millisUntilFinished) {
-                            timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000);
+                            timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000 + " ms" +
+                                    millisUntilFinished / 1000);
                             tapBtn.setBackgroundResource(R.drawable.btn_states);
                             roundStarted = true;
 
-                            if (millisUntilFinished  > 500 && tapCount > 7){
+                            if (millisUntilFinished  > 0.500 && tapCount > 7){
                                 roundOverView.setText("Sizzlin!");
                                 tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
                             }
 
-                            if (millisUntilFinished  > 250 && tapCount > 3){
+                            if (millisUntilFinished  > 0.250 && tapCount > 3){
                                 roundOverView.setText("Lightnin!");
                                 tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
                             }
@@ -182,9 +183,9 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
             scoreEditor.apply();
         }
 
-        if (scorePref.getInt("levelFiveScore", 0) > 14){
+        if (scorePref.getInt("levelFiveScore", 0) > 12){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
-            scoreEditor.putString("levelUnlocked", "six");
+            scoreEditor.putString("levelUnlocked", "five");
             scoreEditor.apply();
         }
     }

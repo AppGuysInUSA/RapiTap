@@ -47,7 +47,7 @@ public class LevelFourActivity extends Activity implements OnClickListener {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int levelFourScore = scorePref.getInt("levelFourScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        if(levelUnlocked.equals("five") || levelFourScore > 39){
+        if(levelUnlocked.equals("five") || levelFourScore > 23){
 
             TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
             nextLevelView.setTypeface(myfont);
@@ -126,7 +126,7 @@ public class LevelFourActivity extends Activity implements OnClickListener {
                                 tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
                             }
 
-                            if (millisUntilFinished  > 500 && tapCount > 21){
+                            if (millisUntilFinished  > 0.500 && tapCount > 21){
                                 roundOverView.setText("Sizzlin!");
                                 tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
                             }
@@ -159,6 +159,15 @@ public class LevelFourActivity extends Activity implements OnClickListener {
                         }
                     }.start();
                 }
+
+                TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
+                nextLevelView.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent levelFiveIntent = new Intent(LevelFourActivity.this, LevelFiveActivity.class);
+                        finish();
+                        startActivity(levelFiveIntent);
+                    }
+                });
             }
         });
     }
