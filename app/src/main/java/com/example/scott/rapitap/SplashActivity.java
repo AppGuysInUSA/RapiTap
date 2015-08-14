@@ -1,8 +1,12 @@
 package com.example.scott.rapitap;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +34,93 @@ public class SplashActivity extends Activity {
         // Import font
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
 
+        // Check String Values for Resume Game
+        SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+        String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
+        int levelOneScore = scorePref.getInt("levelOneScore", 0);
+        int levelTwoScore = scorePref.getInt("levelTwoScore", 0);
+
+        final TextView openTextView = (TextView) findViewById(R.id.openTextView);
+        openTextView.setTypeface(myfont);
+        openTextView.setText("Highest Level Reached is "+scorePref.getString("levelUnlocked", "locked"));
+
+        if(levelUnlocked.equals("locked")){
+
+            final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+            resumeGameTextView.setTypeface(myfont);
+            resumeGameTextView.setTextColor(Color.GRAY);
+            resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                }
+            });
+        }
+
+        if(levelUnlocked.equals("one")){
+
+            final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+            resumeGameTextView.setTypeface(myfont);
+            resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
+                    startActivity(levelOneIntent);
+                }
+            });
+        }
+
+        if(levelUnlocked.equals("two")){
+
+            final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+            resumeGameTextView.setTypeface(myfont);
+            resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent levelTwoIntent = new Intent(SplashActivity.this, LevelTwoActivity.class);
+                    startActivity(levelTwoIntent);
+                }
+            });
+        }
+
+        if(levelUnlocked.equals("three")){
+
+            final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+            resumeGameTextView.setTypeface(myfont);
+            resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent levelThreeIntent = new Intent(SplashActivity.this, LevelThreeActivity.class);
+                    startActivity(levelThreeIntent);
+                }
+            });
+        }
+
+        if(levelUnlocked.equals("four")){
+
+            final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+            resumeGameTextView.setTypeface(myfont);
+            resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent levelFourIntent = new Intent(SplashActivity.this, LevelFourActivity.class);
+                    startActivity(levelFourIntent);
+                }
+            });
+        }
+
+        if(levelUnlocked.equals("five")){
+
+            final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+            resumeGameTextView.setTypeface(myfont);
+            resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent levelFiveIntent = new Intent(SplashActivity.this, LevelFiveActivity.class);
+                    startActivity(levelFiveIntent);
+                }
+            });
+        }
+
         // Start Buttons
         final TextView newGameTextView = (TextView) findViewById(R.id.newGameTextView);
         newGameTextView.setTypeface(myfont);
@@ -37,15 +128,6 @@ public class SplashActivity extends Activity {
             public void onClick(View v) {
                 Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
                 startActivity(levelOneIntent);
-            }
-        });
-
-        final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
-        resumeGameTextView.setTypeface(myfont);
-        resumeGameTextView.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
-                //startActivity(levelOneIntent);
             }
         });
 
@@ -57,27 +139,5 @@ public class SplashActivity extends Activity {
                 //startActivity(levelOneIntent);
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

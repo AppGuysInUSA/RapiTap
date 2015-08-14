@@ -17,12 +17,11 @@ import android.view.View.OnClickListener;
 //import com.google.android.gms.ads.AdRequest;
 
 
-
-public class LevelOneActivity extends Activity implements OnClickListener {
+public class LevelThreeActivity extends Activity implements OnClickListener {
 
     // Start counter variable and firstClick trigger
     int tapCount = 0;
-    int newLevelOneScore = 0;
+    int newLevelThreeScore = 0;
     int firstClick = 0;
     boolean roundStarted;
 
@@ -32,7 +31,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.level_one);
+        setContentView(R.layout.level_three);
 
 /*        AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -46,16 +45,16 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
-        int levelOneScore = scorePref.getInt("levelOneScore", 0);
+        int levelThreeScore = scorePref.getInt("levelThreeScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        if(levelUnlocked.equals("two") || levelOneScore > 24){
+        if(levelUnlocked.equals("four") || levelThreeScore > 31){
 
             TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
             nextLevelView.setTypeface(myfont);
             nextLevelView.setAlpha(1);
             nextLevelView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent levelTwoIntent = new Intent(LevelOneActivity.this, LevelTwoActivity.class);
+                    Intent levelTwoIntent = new Intent(LevelThreeActivity.this, LevelFourActivity.class);
                     finish();
                     startActivity(levelTwoIntent);
                 }
@@ -85,6 +84,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         displayScore();
 
+
         // Start of buttons
         final TextView resetView = (TextView) findViewById(R.id.resetView);
         resetView.setTypeface(myfont);
@@ -99,7 +99,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         mainMenuBtnView.setTypeface(myfont);
         mainMenuBtnView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent mainMenuIntent = new Intent(LevelOneActivity.this, SplashActivity.class);
+                Intent mainMenuIntent = new Intent(LevelThreeActivity.this, SplashActivity.class);
                 finish();
                 startActivity(mainMenuIntent);
             }
@@ -114,31 +114,37 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                 tapCountTextView.setText(String.valueOf(tapCount));
 
                 if (firstClick == 1) {
-                    new CountDownTimer(5000, 1000) {
+                    new CountDownTimer(3000, 1000) {
 
                         public void onTick(long millisUntilFinished) {
                             timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000);
-                            tapBtn.setBackgroundResource(R.drawable.btn_states);
+                            tapBtn.setBackgroundResource(R.drawable.btn_states_level_three);
                             roundStarted = true;
 
-                            if (millisUntilFinished > 2000 && tapCount > 20){
-                                roundOverView.setText("Spectacular!");
+                            if (millisUntilFinished  > 2000 && tapCount > 12){
+                                roundOverView.setText("Redhot!");
+                                tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
+                            }
+
+                            if (millisUntilFinished  > 1000 && tapCount > 26){
+                                roundOverView.setText("Redhot!");
+                                tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
                             }
                         }
 
                         public void onFinish() {
                             timerView.setText("Times Up!");
                             tapBtn.setBackgroundResource(R.drawable.redbutton);
-                            newLevelOneScore = tapCount;
+                            newLevelThreeScore = tapCount;
 
-                            if (timerView.getText() == ("Times Up!") && tapCount < 25) {
-                                roundOverView.setText("Yikes!");
-                                resetView.setText("Replay");
+                            if (timerView.getText() == ("Times Up!") && tapCount < 32) {
+                                roundOverView.setText("Nope!");
+                                resetView.setText("Try Again");
                                 roundStarted = false;
                             }
 
-                            if (timerView.getText() == ("Times Up!") && tapCount > 24) {
-                                roundOverView.setText("Good Job!");
+                            if (timerView.getText() == ("Times Up!") && tapCount > 31) {
+                                roundOverView.setText("Fantastic!");
                                 TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
                                 nextLevelView.setAlpha(1);
                                 roundStarted = false;
@@ -157,9 +163,9 @@ public class LevelOneActivity extends Activity implements OnClickListener {
                 TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
                 nextLevelView.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        Intent levelTwoIntent = new Intent(LevelOneActivity.this, LevelTwoActivity.class);
+                        Intent levelFourIntent = new Intent(LevelThreeActivity.this, LevelFourActivity.class);
                         finish();
-                        startActivity(levelTwoIntent);
+                        startActivity(levelFourIntent);
                     }
                 });
             }
@@ -168,23 +174,23 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
     private void saveScore() {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
-        int currentLevelOneHighScore = scorePref.getInt("levelOneScore", 0);
+        int currentLevelThreeHighScore = scorePref.getInt("levelThreeScore", 0);
 
-        if(newLevelOneScore > currentLevelOneHighScore ){
+        if(newLevelThreeScore > currentLevelThreeHighScore ){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
-            scoreEditor.putInt("levelOneScore", newLevelOneScore);
+            scoreEditor.putInt("levelThreeScore", newLevelThreeScore);
             scoreEditor.apply();
         }
 
-        if (scorePref.getInt("levelOneScore", 0) > 0){
+        if (scorePref.getInt("levelThreeScore", 0) > 0){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
-            scoreEditor.putString("levelUnlocked", "one");
+            scoreEditor.putString("levelUnlocked", "three");
             scoreEditor.apply();
         }
 
-        if (scorePref.getInt("levelOneScore", 0) > 24){
+        if (scorePref.getInt("levelThreeScore", 0) > 31){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
-            scoreEditor.putString("levelUnlocked", "two");
+            scoreEditor.putString("levelUnlocked", "four");
             scoreEditor.apply();
         }
     }
@@ -194,7 +200,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         TextView hiScoreTextView = (TextView) findViewById(R.id.hiScoreTextView);
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
 
-        int hiScore = scorePref.getInt("levelOneScore", 0);
+        int hiScore = scorePref.getInt("levelThreeScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
     }
 
@@ -203,3 +209,5 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
     }
 }
+
+

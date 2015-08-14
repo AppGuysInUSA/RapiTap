@@ -3,7 +3,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layout_bg_green">
+    android:background="@drawable/layout_bg_dark_blue">
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -17,7 +17,7 @@
             android:id="@+id/tapBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/greenbutton" />
+            android:background="@drawable/yellowbutton" />
 
     </TableLayout>
 
@@ -28,7 +28,7 @@
         android:layout_above="@+id/tableLayout"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="Begin Level 2"
+        android:text="Begin Level 3"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
@@ -106,7 +106,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="24dp"
         android:layout_toStartOf="@+id/tableLayout"
-        android:text="You&apos;re just warming up.. Level 2 you have 4 seconds to tap at least 40 times... Not so easy!"
+        android:text="So you think your quick eh.. Level 3 you have 3 seconds to tap at least 32 times... Lets see!"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:textIsSelectable="true"
@@ -133,22 +133,22 @@
         android:layout_below="@+id/hiScoreTitleTextView"
         android:layout_alignEnd="@+id/nextLevelView"
         android:layout_marginEnd="47dp" />
-<!--
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
+    <!--
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id">
-        </com.google.android.gms.ads.AdView>
+            android:layout_alignParentBottom="true">
 
-    </RelativeLayout>
--->
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_ad_unit_id">
+            </com.google.android.gms.ads.AdView>
+
+        </RelativeLayout>
+    -->
 </RelativeLayout>

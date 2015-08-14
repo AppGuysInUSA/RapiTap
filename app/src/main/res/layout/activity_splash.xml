@@ -84,6 +84,24 @@
                 android:id="@+id/highScoreTextView" />
         </TableRow>
 
+        <TableRow
+            android:id="@+id/row4"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="empty"
+                android:textSize="36dp"
+                android:gravity="center"
+                android:id="@+id/openTextView" />
+        </TableRow>
+
     </TableLayout>
 
 </RelativeLayout>

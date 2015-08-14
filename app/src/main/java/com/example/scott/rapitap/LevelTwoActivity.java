@@ -5,17 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
-import android.widget.Toast;
 //import com.google.android.gms.ads.AdView;
 //import com.google.android.gms.ads.AdRequest;
 
@@ -24,7 +21,7 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
 
     // Start counter variable and firstClick trigger
     int tapCount = 0;
-    int newScore = 0;
+    int newLevelTwoScore = 0;
     int firstClick = 0;
     boolean roundStarted;
 
@@ -40,18 +37,39 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 */
+        //levelUnlocked = "locked";
 
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         tapCountTextView.setTypeface(myfont);
 
+        // Check String Values for Resume Game
+        SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+        int levelTwoScore = scorePref.getInt("levelTwoScore", 0);
+        String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
+        if(levelUnlocked.equals("three") || levelTwoScore > 39){
+
+            TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
+            nextLevelView.setTypeface(myfont);
+            nextLevelView.setAlpha(1);
+            nextLevelView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent levelTwoIntent = new Intent(LevelTwoActivity.this, LevelThreeActivity.class);
+                    finish();
+                    startActivity(levelTwoIntent);
+                }
+            });
+        } else {
+
+            TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
+            nextLevelView.setTypeface(myfont);
+            nextLevelView.setAlpha(0);
+
+        }
+
         final TextView roundOverView = (TextView) findViewById(R.id.roundOverView);
         roundOverView.setTypeface(myfont);
-
-        final TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
-        nextLevelView.setTypeface(myfont);
-        nextLevelView.setAlpha(0);
 
         final TextView timerView = (TextView) findViewById(R.id.timerView);
         timerView.setTypeface(myfont);
@@ -62,8 +80,8 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
         final TextView hiScoreTextView = (TextView) findViewById(R.id.hiScoreTextView);
         hiScoreTextView.setTypeface(myfont);
 
-        final TextView levelOneRulesView = (TextView) findViewById(R.id.levelOneRulesView);
-        levelOneRulesView.setTypeface(myfont);
+        final TextView levelRulesView = (TextView) findViewById(R.id.levelRulesView);
+        levelRulesView.setTypeface(myfont);
 
         displayScore();
 
@@ -94,7 +112,6 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
 
                 firstClick++;
                 tapCount++;
-                //long timePassed = 0;
                 tapCountTextView.setText(String.valueOf(tapCount));
 
                 if (firstClick == 1) {
@@ -119,7 +136,7 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
                         public void onFinish() {
                             timerView.setText("Times Up!");
                             tapBtn.setBackgroundResource(R.drawable.redbutton);
-                            newScore = tapCount;
+                            newLevelTwoScore = tapCount;
 
                             if (timerView.getText() == ("Times Up!") && tapCount < 40) {
                                 roundOverView.setText("Not quite!");
@@ -127,15 +144,15 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
                                 roundStarted = false;
                             }
 
-                            if (timerView.getText() == ("Times Up!") && tapCount >= 40) {
+                            if (timerView.getText() == ("Times Up!") && tapCount > 39) {
                                 roundOverView.setText("Awesome!");
+                                TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
                                 nextLevelView.setAlpha(1);
                                 roundStarted = false;
                             }
 
                             if (!roundStarted) {
                                 tapBtn.setOnClickListener(null);
-                                //timePassed++;
                             }
 
                             saveScore();
@@ -143,29 +160,47 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
                         }
                     }.start();
                 }
+                TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
+                nextLevelView.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent levelThreeIntent = new Intent(LevelTwoActivity.this, LevelThreeActivity.class);
+                        finish();
+                        startActivity(levelThreeIntent);
+                    }
+                });
             }
         });
     }
 
     private void saveScore() {
-        SharedPreferences levelTwoScoreSharedPref = getSharedPreferences("levelTwoUserScore", Context.MODE_PRIVATE);
-        int currentHighScore = levelTwoScoreSharedPref.getInt("levelTwoScore", 0);
+        SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+        int currentLevelTwoHighScore = scorePref.getInt("levelTwoScore", 0);
 
-        if(newScore > currentHighScore ){
-            SharedPreferences.Editor levelTwoScoreEditor = levelTwoScoreSharedPref.edit();
-            levelTwoScoreEditor.putInt("levelTwoScore", newScore);
-            levelTwoScoreEditor.apply();
+        if(newLevelTwoScore > currentLevelTwoHighScore ){
+            SharedPreferences.Editor scoreEditor = scorePref.edit();
+            scoreEditor.putInt("levelTwoScore", newLevelTwoScore);
+            scoreEditor.apply();
         }
 
-       // Toast.makeText(this, "Score Saved!", Toast.LENGTH_LONG).show();
+        if (scorePref.getInt("levelTwoScore", 0) > 0){
+            SharedPreferences.Editor scoreEditor = scorePref.edit();
+            scoreEditor.putString("levelUnlocked", "two");
+            scoreEditor.apply();
+        }
+
+        if (scorePref.getInt("levelTwoScore", 0) > 39){
+            SharedPreferences.Editor scoreEditor = scorePref.edit();
+            scoreEditor.putString("levelUnlocked", "three");
+            scoreEditor.apply();
+        }
     }
 
     private void displayScore() {
 
         TextView hiScoreTextView = (TextView) findViewById(R.id.hiScoreTextView);
-        SharedPreferences levelTwoScoreSharedPref = getSharedPreferences("levelTwoUserScore", Context.MODE_PRIVATE);
+        SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
 
-        int hiScore = levelTwoScoreSharedPref.getInt("levelTwoScore", 0);
+        int hiScore = scorePref.getInt("levelTwoScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
     }
 
