@@ -142,13 +142,13 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
                             tapBtn.setBackgroundResource(R.drawable.redbutton);
                             newLevelFiveScore = tapCount;
 
-                            if (timerView.getText() == ("Times Up!") && tapCount < 13) {
+                            if (timerView.getText() == ("Times Up!") && tapCount < 15) {
                                 roundOverView.setText("Nope!");
                                 resetView.setText("Try Again");
                                 roundStarted = false;
                             }
 
-                            if (timerView.getText() == ("UNBELIEVABLE!") && tapCount > 12) {
+                            if (timerView.getText() == ("UNBELIEVABLE!") && tapCount > 14) {
                                 roundOverView.setText("You did that!");
                                 nextLevelView.setAlpha(1);
                                 roundStarted = false;
@@ -183,7 +183,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
             scoreEditor.apply();
         }
 
-        if (scorePref.getInt("levelFiveScore", 0) > 12){
+        if (scorePref.getInt("levelFiveScore", 0) > 14){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putString("levelUnlocked", "five");
             scoreEditor.apply();

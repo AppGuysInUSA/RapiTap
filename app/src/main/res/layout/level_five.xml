@@ -7,8 +7,8 @@
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
 
@@ -106,7 +106,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="24dp"
         android:layout_toStartOf="@+id/tableLayout"
-        android:text="You&apos;ve made it to the final test!... Level 5 you have 1 seconds to tap at least 13 times... is it even possible?"
+        android:text="You&apos;ve made it to the final test!... Level 5 you have 1 seconds to tap at least 15 times... is it even possible?"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:textIsSelectable="true"
