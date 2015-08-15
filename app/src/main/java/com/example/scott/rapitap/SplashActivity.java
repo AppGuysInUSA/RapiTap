@@ -135,6 +135,9 @@ public class SplashActivity extends Activity {
         highScoreTextView.setTypeface(myfont);
         highScoreTextView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                Intent highScoreView = new Intent(SplashActivity.this, HighScoreView.class);
+                startActivity(highScoreView);
                 //Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
                 //startActivity(levelOneIntent);
             }
