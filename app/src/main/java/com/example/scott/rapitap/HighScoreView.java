@@ -43,8 +43,8 @@ public class HighScoreView extends Activity implements OnClickListener{
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-*/
 
+*/
 
         // import font
         final TextView hiScoreTitleTextView = (TextView) findViewById(R.id.hiScoreTitleTextView);
