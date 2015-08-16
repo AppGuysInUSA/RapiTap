@@ -4,32 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
-
-import org.w3c.dom.Text;
-
-import java.security.PrivilegedAction;
 //import com.google.android.gms.ads.AdView;
 //import com.google.android.gms.ads.AdRequest;
 
 
 
 public class HighScoreView extends Activity implements OnClickListener{
-
-    int newLevelOneScore = 0;
-    int newLevelTwoScore = 0;
-    int newLevelThreeScore = 0;
-    int newLevelFourScore = 0;
-    int newLevelFiveScore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +29,9 @@ public class HighScoreView extends Activity implements OnClickListener{
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.highscoreview);
 
-/*
-        AdView mAdView = (AdView) findViewById(R.id.adView);
+/*        AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
 */
 
         // import font
@@ -52,50 +40,36 @@ public class HighScoreView extends Activity implements OnClickListener{
         hiScoreTitleTextView.setTypeface(myfont);
 
 
-        final TextView level1 = (TextView) findViewById(R.id.level1);
-        level1.setTypeface(myfont);
+        // Bring in high scores
+        SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+        int currentLevelOneHighScore = scorePref.getInt("levelOneScore", 0);
+        int currentLevelTwoHighScore = scorePref.getInt("levelTwoScore", 0);
+        int currentLevelThreeHighScore = scorePref.getInt("levelThreeScore", 0);
+        int currentLevelFourHighScore = scorePref.getInt("levelFourScore", 0);
+        int currentLevelFiveHighScore = scorePref.getInt("levelFiveScore", 0);
 
-        final TextView level2 = (TextView) findViewById(R.id.level2);
-        level2.setTypeface(myfont);
+        // Set Hi-Score int to String value
+        final TextView levelOneHiScoreTextView = (TextView) findViewById(R.id.levelOneHiScoreTextView);
+        levelOneHiScoreTextView.setTypeface(myfont);
+        levelOneHiScoreTextView.setText(String.valueOf(currentLevelOneHighScore));
 
-        final TextView level3 = (TextView) findViewById(R.id.level3);
-        level3.setTypeface(myfont);
+        final TextView levelTwoHiScoreTextView = (TextView) findViewById(R.id.levelTwoHiScoreTextView);
+        levelTwoHiScoreTextView.setTypeface(myfont);
+        levelTwoHiScoreTextView.setText(String.valueOf(currentLevelTwoHighScore));
 
-        final TextView level4 = (TextView) findViewById(R.id.level4);
-        level4.setTypeface(myfont);
+        final TextView levelThreeHiScoreTextView = (TextView) findViewById(R.id.levelThreeHiScoreTextView);
+        levelThreeHiScoreTextView.setTypeface(myfont);
+        levelThreeHiScoreTextView.setText(String.valueOf(currentLevelThreeHighScore));
 
-        final TextView level5 = (TextView) findViewById(R.id.level5);
-        level5.setTypeface(myfont);
+        final TextView levelFourHiScoreTextView = (TextView) findViewById(R.id.levelFourHiScoreTextView);
+        levelFourHiScoreTextView.setTypeface(myfont);
+        levelFourHiScoreTextView.setText(String.valueOf(currentLevelFourHighScore));
 
-        final TextView hiScoreTextView1 = (TextView) findViewById(R.id.hiScoreTextView1);
-        hiScoreTextView1.setTypeface(myfont);
+        final TextView levelFiveHiScoreTextView = (TextView) findViewById(R.id.levelFiveHiScoreTextView);
+        levelFiveHiScoreTextView.setTypeface(myfont);
+        levelFiveHiScoreTextView.setText(String.valueOf(currentLevelFiveHighScore));
 
-        final TextView hiScoreTextView2 = (TextView) findViewById(R.id.hiScoreTextView2);
-        hiScoreTextView2.setTypeface(myfont);
 
-        final TextView hiScoreTextView3 = (TextView) findViewById(R.id.hiScoreTextView3);
-        hiScoreTextView3.setTypeface(myfont);
-
-        final TextView hiScoreTextView4 = (TextView) findViewById(R.id.hiScoreTextView4);
-        hiScoreTextView4.setTypeface(myfont);
-
-        final TextView hiScoreTextView5 = (TextView) findViewById(R.id.hiScoreTextView5);
-        hiScoreTextView5.setTypeface(myfont);
-
-        final TextView playerName1 = (TextView) findViewById(R.id.playerName1);
-        playerName1.setTypeface(myfont);
-
-        final TextView playerName2 = (TextView) findViewById(R.id.playerName2);
-        playerName2.setTypeface(myfont);
-
-        final TextView playerName3 = (TextView) findViewById(R.id.playerName3);
-        playerName3.setTypeface(myfont);
-
-        final TextView playerName4 = (TextView) findViewById(R.id.playerName4);
-        playerName4.setTypeface(myfont);
-
-        final TextView playerName5 = (TextView) findViewById(R.id.playerName5);
-        playerName5.setTypeface(myfont);
 
 
         final TextView mainMenuBtnView = (TextView) findViewById(R.id.mainMenuBtnView);
@@ -109,6 +83,7 @@ public class HighScoreView extends Activity implements OnClickListener{
         });
     }
 
+    @Override
     public void onClick(View v) {
 
     }
