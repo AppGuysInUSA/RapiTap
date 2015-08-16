@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 //import com.google.android.gms.ads.AdView;
 //import com.google.android.gms.ads.AdRequest;
 
@@ -186,6 +187,9 @@ public class LevelOneActivity extends Activity implements OnClickListener {
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putString("levelUnlocked", "two");
             scoreEditor.apply();
+
+//            Toast.makeText(this,String.valueOf(newLevelOneScore),Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -196,6 +200,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         int hiScore = scorePref.getInt("levelOneScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
+
     }
 
     @Override

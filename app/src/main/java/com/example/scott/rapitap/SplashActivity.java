@@ -127,6 +127,8 @@ public class SplashActivity extends Activity {
         newGameTextView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
+                SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+                scorePref.edit().clear().commit();
                 startActivity(levelOneIntent);
             }
         });
