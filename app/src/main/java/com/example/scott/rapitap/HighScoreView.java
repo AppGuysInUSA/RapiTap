@@ -39,8 +39,8 @@ public class HighScoreView extends Activity implements OnClickListener{
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.highscoreview);
 
-
-/*        AdView mAdView = (AdView) findViewById(R.id.adView);
+/*
+        AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 */
