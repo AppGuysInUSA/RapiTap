@@ -47,7 +47,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
-        final int levelOneScore = scorePref.getInt("levelOneScore", 0);
+        int levelOneScore = scorePref.getInt("levelOneScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
         if(levelUnlocked.equals("two") || levelOneScore > 24){
 
