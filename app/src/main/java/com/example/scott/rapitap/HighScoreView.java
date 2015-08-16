@@ -69,8 +69,35 @@ public class HighScoreView extends Activity implements OnClickListener{
         levelFiveHiScoreTextView.setTypeface(myfont);
         levelFiveHiScoreTextView.setText(String.valueOf(currentLevelFiveHighScore));
 
+        final TextView level1 = (TextView) findViewById(R.id.level1);
+        level1.setTypeface(myfont);
 
+        final TextView level2 = (TextView) findViewById(R.id.level2);
+        level2.setTypeface(myfont);
 
+        final TextView level3 = (TextView) findViewById(R.id.level3);
+        level3.setTypeface(myfont);
+
+        final TextView level4 = (TextView) findViewById(R.id.level4);
+        level4.setTypeface(myfont);
+
+        final TextView level5 = (TextView) findViewById(R.id.level5);
+        level5.setTypeface(myfont);
+
+        final TextView playerName1 = (TextView) findViewById(R.id.playerName1);
+        playerName1.setTypeface(myfont);
+
+        final TextView playerName2 = (TextView) findViewById(R.id.playerName2);
+        playerName2.setTypeface(myfont);
+
+        final TextView playerName3 = (TextView) findViewById(R.id.playerName3);
+        playerName3.setTypeface(myfont);
+
+        final TextView playerName4 = (TextView) findViewById(R.id.playerName4);
+        playerName4.setTypeface(myfont);
+
+        final TextView playerName5 = (TextView) findViewById(R.id.playerName5);
+        playerName5.setTypeface(myfont);
 
         final TextView mainMenuBtnView = (TextView) findViewById(R.id.mainMenuBtnView);
         mainMenuBtnView.setTypeface(myfont);
