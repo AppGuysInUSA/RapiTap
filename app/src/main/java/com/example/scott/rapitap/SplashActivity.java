@@ -23,6 +23,8 @@ import android.widget.TextView;
 
 public class SplashActivity extends Activity {
 
+    //MyDBHandler gameDbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,7 @@ public class SplashActivity extends Activity {
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        int levelOneScore = scorePref.getInt("levelOneScore", 0);
+        final int levelOneScore = scorePref.getInt("levelOneScore", 0);
         int levelTwoScore = scorePref.getInt("levelTwoScore", 0);
 
         final TextView openTextView = (TextView) findViewById(R.id.openTextView);
@@ -126,10 +128,16 @@ public class SplashActivity extends Activity {
         newGameTextView.setTypeface(myfont);
         newGameTextView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Intent nameInputIntent = new Intent(SplashActivity.this, NameInputActivity.class);
+                SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+                scorePref.edit().clear().commit();
+                startActivity(nameInputIntent);
+/*
                 Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
                 SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
                 scorePref.edit().clear().commit();
                 startActivity(levelOneIntent);
+                */
             }
         });
 

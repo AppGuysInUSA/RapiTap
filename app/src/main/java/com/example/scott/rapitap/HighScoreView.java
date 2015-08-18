@@ -47,11 +47,13 @@ public class HighScoreView extends Activity implements OnClickListener{
         int currentLevelThreeHighScore = scorePref.getInt("levelThreeScore", 0);
         int currentLevelFourHighScore = scorePref.getInt("levelFourScore", 0);
         int currentLevelFiveHighScore = scorePref.getInt("levelFiveScore", 0);
+        String userName = (scorePref.getString("userName", ""));
 
         // Set Hi-Score int to String value
         final TextView levelOneHiScoreTextView = (TextView) findViewById(R.id.levelOneHiScoreTextView);
+        String levelOneHighestScore = (String.valueOf(currentLevelOneHighScore));
         levelOneHiScoreTextView.setTypeface(myfont);
-        levelOneHiScoreTextView.setText(String.valueOf(currentLevelOneHighScore));
+        levelOneHiScoreTextView.setText(levelOneHighestScore);
 
         final TextView levelTwoHiScoreTextView = (TextView) findViewById(R.id.levelTwoHiScoreTextView);
         levelTwoHiScoreTextView.setTypeface(myfont);
@@ -86,6 +88,7 @@ public class HighScoreView extends Activity implements OnClickListener{
 
         final TextView playerName1 = (TextView) findViewById(R.id.playerName1);
         playerName1.setTypeface(myfont);
+        playerName1.setText(userName);
 
         final TextView playerName2 = (TextView) findViewById(R.id.playerName2);
         playerName2.setTypeface(myfont);

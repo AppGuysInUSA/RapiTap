@@ -10,10 +10,13 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
+
+import java.util.List;
 //import com.google.android.gms.ads.AdView;
 //import com.google.android.gms.ads.AdRequest;
 
@@ -26,6 +29,8 @@ public class LevelOneActivity extends Activity implements OnClickListener {
     int newLevelOneScore = 0;
     int firstClick = 0;
     boolean roundStarted;
+    TextView playerName1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,6 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 */
-
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
@@ -47,6 +51,13 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+
+        String userName = scorePref.getString("userName", "");
+
+        playerName1 = (TextView) findViewById(R.id.playerName1);
+        playerName1.setTypeface(myfont);
+        playerName1.setText(String.valueOf(userName));
+
         int levelOneScore = scorePref.getInt("levelOneScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
         if(levelUnlocked.equals("two") || levelOneScore > 24){
@@ -187,8 +198,6 @@ public class LevelOneActivity extends Activity implements OnClickListener {
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putString("levelUnlocked", "two");
             scoreEditor.apply();
-
-//            Toast.makeText(this,String.valueOf(newLevelOneScore),Toast.LENGTH_LONG).show();
 
         }
     }
