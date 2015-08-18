@@ -26,7 +26,6 @@ public class NameInputActivity extends Activity{
         // Set up calls
         playerNameInput = (EditText) findViewById(R.id.playerNameInput);
         enterBtnTextView = (TextView) findViewById(R.id.enterBtnTextView);
-        currentPlayerNameView = (TextView) findViewById(R.id.currentPlayerNameView);
 
         // Set up button
         enterBtnTextView.setOnClickListener(new View.OnClickListener() {
