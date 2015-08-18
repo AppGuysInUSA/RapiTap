@@ -36,8 +36,11 @@ public class HighScoreView extends Activity implements OnClickListener{
 
         // import font
         final TextView hiScoreTitleTextView = (TextView) findViewById(R.id.hiScoreTitleTextView);
+        final TextView hiScoreTitleTextView2 = (TextView) findViewById(R.id.hiScoreTitleTextView2);
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         hiScoreTitleTextView.setTypeface(myfont);
+        hiScoreTitleTextView2.setTypeface(myfont);
+
 
 
         // Bring in high scores
@@ -101,6 +104,22 @@ public class HighScoreView extends Activity implements OnClickListener{
 
         final TextView playerName5 = (TextView) findViewById(R.id.playerName5);
         playerName5.setTypeface(myfont);
+
+        final TextView globalPlayerName1 = (TextView) findViewById(R.id.globalPlayerName1);
+        globalPlayerName1.setTypeface(myfont);
+
+        final TextView globalPlayerName2 = (TextView) findViewById(R.id.globalPlayerName2);
+        globalPlayerName2.setTypeface(myfont);
+
+        final TextView globalPlayerName3 = (TextView) findViewById(R.id.globalPlayerName3);
+        globalPlayerName3.setTypeface(myfont);
+
+        final TextView globalPlayerName4 = (TextView) findViewById(R.id.globalPlayerName4);
+        globalPlayerName4.setTypeface(myfont);
+
+        final TextView globalPlayerName5 = (TextView) findViewById(R.id.globalPlayerName5);
+        globalPlayerName5.setTypeface(myfont);
+
 
         final TextView mainMenuBtnView = (TextView) findViewById(R.id.mainMenuBtnView);
         mainMenuBtnView.setTypeface(myfont);

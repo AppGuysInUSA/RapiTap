@@ -11,12 +11,26 @@
         android:layout_width="200dp"
         android:layout_height="43dp"
         android:gravity="center"
-        android:text="High Score"
+        android:text="Local High Score"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
+        android:layout_marginTop="15dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="150dp" />
+
+    <TextView
+        android:id="@+id/hiScoreTitleTextView2"
+        android:layout_width="200dp"
+        android:layout_height="43dp"
+        android:gravity="center"
+        android:text="Global High Score"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="375dp" />
 
     <TextView
         android:id="@+id/mainMenuBtnView"
@@ -29,10 +43,10 @@
         android:textColor="#000000"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginBottom="50dp" />
 
     <TableLayout
-        android:layout_width="300dp"
+        android:layout_width="600dp"
         android:layout_height="225dp"
         android:layout_below="@+id/hiScoreTitleTextView"
         android:layout_marginTop="1dp"
@@ -52,6 +66,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -63,6 +78,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -73,7 +89,32 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="left"
                 android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/levelOneGlobalHiScoreTextView"
+                android:text="----------"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/globalPlayerName1"
+                android:text="Randall"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
+
         </TableRow>
 
         <TableRow
@@ -90,6 +131,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -101,6 +143,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -111,7 +154,32 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="left"
                 android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/levelTwoGlobalHiScoreTextView"
+                android:text="----------"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/globalPlayerName2"
+                android:text="Randall"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
+
         </TableRow>
 
         <TableRow
@@ -128,6 +196,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -139,6 +208,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -149,7 +219,32 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="left"
                 android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/levelThreeGlobalHiScoreTextView"
+                android:text="----------"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/globalPlayerName3"
+                android:text="Randall"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
+
         </TableRow>
 
         <TableRow
@@ -166,6 +261,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -177,6 +273,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -187,7 +284,32 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="left"
                 android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/levelFourGlobalHiScoreTextView"
+                android:text="----------"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/globalPlayerName4"
+                android:text="Randall"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
+
         </TableRow>
 
         <TableRow
@@ -204,6 +326,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -215,6 +338,7 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
@@ -225,7 +349,32 @@
                 android:textColor="#000000"
                 android:layout_width="0dp"
                 android:layout_margin="4dp"
+                android:gravity="left"
                 android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/levelFiveGlobalHiScoreTextView"
+                android:text="----------"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/globalPlayerName5"
+                android:text="Randall"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
+
         </TableRow>
 
     </TableLayout>
