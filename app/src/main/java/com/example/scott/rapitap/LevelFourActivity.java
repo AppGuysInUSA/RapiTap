@@ -24,6 +24,7 @@ public class LevelFourActivity extends Activity implements OnClickListener {
     int newLevelFourScore = 0;
     int firstClick = 0;
     boolean roundStarted;
+    TextView playerName4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,13 @@ public class LevelFourActivity extends Activity implements OnClickListener {
 
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+
+        String userName = scorePref.getString("userName4", "");
+
+        playerName4 = (TextView) findViewById(R.id.playerName4);
+        playerName4.setTypeface(myfont);
+        playerName4.setText(String.valueOf(userName));
+
         int levelFourScore = scorePref.getInt("levelFourScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
         if(levelUnlocked.equals("five") || levelFourScore > 23){
@@ -175,10 +183,12 @@ public class LevelFourActivity extends Activity implements OnClickListener {
     private void saveScore() {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int currentLevelFourHighScore = scorePref.getInt("levelFourScore", 0);
+        String userName4 = scorePref.getString("userName4", "");
 
         if(newLevelFourScore > currentLevelFourHighScore ){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putInt("levelFourScore", newLevelFourScore);
+            scoreEditor.putString("userName4", scorePref.getString("newUserName", ""));
             scoreEditor.apply();
         }
 
@@ -202,6 +212,7 @@ public class LevelFourActivity extends Activity implements OnClickListener {
 
         int hiScore = scorePref.getInt("levelFourScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
+        playerName4.setText(String.valueOf(scorePref.getString("userName4", "")));
     }
 
     @Override
@@ -209,5 +220,3 @@ public class LevelFourActivity extends Activity implements OnClickListener {
 
     }
 }
-
-

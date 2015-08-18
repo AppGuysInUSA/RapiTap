@@ -24,6 +24,7 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
     int newLevelTwoScore = 0;
     int firstClick = 0;
     boolean roundStarted;
+    TextView playerName2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 */
-        //levelUnlocked = "locked";
 
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);
@@ -46,6 +46,13 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
 
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+
+        String userName = scorePref.getString("userName2", "");
+
+        playerName2 = (TextView) findViewById(R.id.playerName2);
+        playerName2.setTypeface(myfont);
+        playerName2.setText(String.valueOf(userName));
+
         int levelTwoScore = scorePref.getInt("levelTwoScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
         if(levelUnlocked.equals("three") || levelTwoScore > 39){
@@ -175,10 +182,12 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
     private void saveScore() {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int currentLevelTwoHighScore = scorePref.getInt("levelTwoScore", 0);
+        String userName2 = scorePref.getString("userName2", "");
 
         if(newLevelTwoScore > currentLevelTwoHighScore ){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putInt("levelTwoScore", newLevelTwoScore);
+            scoreEditor.putString("userName2", scorePref.getString("newUserName", ""));
             scoreEditor.apply();
         }
 
@@ -202,12 +211,12 @@ public class LevelTwoActivity extends Activity implements OnClickListener {
 
         int hiScore = scorePref.getInt("levelTwoScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
+        playerName2.setText(String.valueOf(scorePref.getString("userName2", "")));
+
     }
 
     @Override
     public void onClick(View v) {
 
     }
-
 }
-

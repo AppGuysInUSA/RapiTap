@@ -41,8 +41,6 @@ public class HighScoreView extends Activity implements OnClickListener{
         hiScoreTitleTextView.setTypeface(myfont);
         hiScoreTitleTextView2.setTypeface(myfont);
 
-
-
         // Bring in high scores
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int currentLevelOneHighScore = scorePref.getInt("levelOneScore", 0);
@@ -50,7 +48,13 @@ public class HighScoreView extends Activity implements OnClickListener{
         int currentLevelThreeHighScore = scorePref.getInt("levelThreeScore", 0);
         int currentLevelFourHighScore = scorePref.getInt("levelFourScore", 0);
         int currentLevelFiveHighScore = scorePref.getInt("levelFiveScore", 0);
-        String userName = (scorePref.getString("userName1", ""));
+
+        // Bring in hi score user name from each level
+        String userName1 = (scorePref.getString("userName1", ""));
+        String userName2 = (scorePref.getString("userName2", ""));
+        String userName3 = (scorePref.getString("userName3", ""));
+        String userName4 = (scorePref.getString("userName4", ""));
+        String userName5 = (scorePref.getString("userName5", ""));
 
         // Set Hi-Score int to String value
         final TextView levelOneHiScoreTextView = (TextView) findViewById(R.id.levelOneHiScoreTextView);
@@ -74,6 +78,8 @@ public class HighScoreView extends Activity implements OnClickListener{
         levelFiveHiScoreTextView.setTypeface(myfont);
         levelFiveHiScoreTextView.setText(String.valueOf(currentLevelFiveHighScore));
 
+        ///////////// Levels ///////////////
+
         final TextView level1 = (TextView) findViewById(R.id.level1);
         level1.setTypeface(myfont);
 
@@ -89,21 +95,29 @@ public class HighScoreView extends Activity implements OnClickListener{
         final TextView level5 = (TextView) findViewById(R.id.level5);
         level5.setTypeface(myfont);
 
+        ///////////// Local Player Names ///////////////
+
         final TextView playerName1 = (TextView) findViewById(R.id.playerName1);
         playerName1.setTypeface(myfont);
-        playerName1.setText(userName);
+        playerName1.setText(userName1);
 
         final TextView playerName2 = (TextView) findViewById(R.id.playerName2);
         playerName2.setTypeface(myfont);
+        playerName2.setText(userName2);
 
         final TextView playerName3 = (TextView) findViewById(R.id.playerName3);
         playerName3.setTypeface(myfont);
+        playerName3.setText(userName3);
 
         final TextView playerName4 = (TextView) findViewById(R.id.playerName4);
         playerName4.setTypeface(myfont);
+        playerName4.setText(userName4);
 
         final TextView playerName5 = (TextView) findViewById(R.id.playerName5);
         playerName5.setTypeface(myfont);
+        playerName5.setText(userName5);
+
+        ///////////// Global Player Names ///////////////
 
         final TextView globalPlayerName1 = (TextView) findViewById(R.id.globalPlayerName1);
         globalPlayerName1.setTypeface(myfont);

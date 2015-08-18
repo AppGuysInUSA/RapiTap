@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 public class NameInputActivity extends Activity{
 
-    TextView currentPlayerNameView;
     EditText playerNameInput;
     TextView enterBtnTextView;
     String playerName = "";
@@ -35,8 +34,8 @@ public class NameInputActivity extends Activity{
 
                 SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
                 SharedPreferences.Editor scoreEditor = scorePref.edit();
-                String userName = scorePref.getString("userName1", "");
-                scoreEditor.putString("userName1", String.valueOf(playerName));
+                String newUserName = scorePref.getString("newUserName", "");
+                scoreEditor.putString("newUserName", String.valueOf(playerName));
                 scoreEditor.apply();
 
                 Intent levelOneIntent = new Intent(NameInputActivity.this, LevelOneActivity.class);

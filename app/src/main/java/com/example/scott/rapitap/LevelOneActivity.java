@@ -181,10 +181,12 @@ public class LevelOneActivity extends Activity implements OnClickListener {
     private void saveScore() {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int currentLevelOneHighScore = scorePref.getInt("levelOneScore", 0);
+        String userName1 = scorePref.getString("userName1", "");
 
         if(newLevelOneScore > currentLevelOneHighScore ){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putInt("levelOneScore", newLevelOneScore);
+            scoreEditor.putString("userName1", scorePref.getString("newUserName", ""));
             scoreEditor.apply();
         }
 
@@ -209,6 +211,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         int hiScore = scorePref.getInt("levelOneScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
+        playerName1.setText(String.valueOf(scorePref.getString("userName1", "")));
 
     }
 

@@ -24,6 +24,7 @@ public class LevelThreeActivity extends Activity implements OnClickListener {
     int newLevelThreeScore = 0;
     int firstClick = 0;
     boolean roundStarted;
+    TextView playerName3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,13 @@ public class LevelThreeActivity extends Activity implements OnClickListener {
 
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+
+        String userName = scorePref.getString("userName3", "");
+
+        playerName3 = (TextView) findViewById(R.id.playerName3);
+        playerName3.setTypeface(myfont);
+        playerName3.setText(String.valueOf(userName));
+
         int levelThreeScore = scorePref.getInt("levelThreeScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
         if(levelUnlocked.equals("four") || levelThreeScore > 31){
@@ -175,10 +183,12 @@ public class LevelThreeActivity extends Activity implements OnClickListener {
     private void saveScore() {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int currentLevelThreeHighScore = scorePref.getInt("levelThreeScore", 0);
+        String userName3 = scorePref.getString("userName3", "");
 
         if(newLevelThreeScore > currentLevelThreeHighScore ){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putInt("levelThreeScore", newLevelThreeScore);
+            scoreEditor.putString("userName3", scorePref.getString("newUserName", ""));
             scoreEditor.apply();
         }
 
@@ -202,6 +212,7 @@ public class LevelThreeActivity extends Activity implements OnClickListener {
 
         int hiScore = scorePref.getInt("levelThreeScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
+        playerName3.setText(String.valueOf(scorePref.getString("userName3", "")));
     }
 
     @Override
@@ -209,5 +220,3 @@ public class LevelThreeActivity extends Activity implements OnClickListener {
 
     }
 }
-
-

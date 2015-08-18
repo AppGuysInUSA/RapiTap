@@ -24,6 +24,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
     int newLevelFiveScore = 0;
     int firstClick = 0;
     boolean roundStarted;
+    TextView playerName5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,13 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
 
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+
+        String userName = scorePref.getString("userName5", "");
+
+        playerName5 = (TextView) findViewById(R.id.playerName5);
+        playerName5.setTypeface(myfont);
+        playerName5.setText(String.valueOf(userName));
+
         int levelFiveScore = scorePref.getInt("levelFiveScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
         if(levelUnlocked.equals("five") || levelFiveScore > 12){
@@ -170,10 +178,12 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
     private void saveScore() {
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         int currentLevelFiveHighScore = scorePref.getInt("levelFiveScore", 0);
+        String userName5 = scorePref.getString("userName5", "");
 
         if(newLevelFiveScore > currentLevelFiveHighScore ){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putInt("levelFiveScore", newLevelFiveScore);
+            scoreEditor.putString("userName5", scorePref.getString("newUserName", ""));
             scoreEditor.apply();
         }
 
@@ -197,6 +207,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
 
         int hiScore = scorePref.getInt("levelFiveScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
+        playerName5.setText(String.valueOf(scorePref.getString("userName5", "")));
     }
 
     @Override
