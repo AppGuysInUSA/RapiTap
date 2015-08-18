@@ -47,7 +47,7 @@ public class HighScoreView extends Activity implements OnClickListener{
         int currentLevelThreeHighScore = scorePref.getInt("levelThreeScore", 0);
         int currentLevelFourHighScore = scorePref.getInt("levelFourScore", 0);
         int currentLevelFiveHighScore = scorePref.getInt("levelFiveScore", 0);
-        String userName = (scorePref.getString("userName", ""));
+        String userName = (scorePref.getString("userName1", ""));
 
         // Set Hi-Score int to String value
         final TextView levelOneHiScoreTextView = (TextView) findViewById(R.id.levelOneHiScoreTextView);

@@ -52,7 +52,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
 
-        String userName = scorePref.getString("userName", "");
+        String userName = scorePref.getString("userName1", "");
 
         playerName1 = (TextView) findViewById(R.id.playerName1);
         playerName1.setTypeface(myfont);
