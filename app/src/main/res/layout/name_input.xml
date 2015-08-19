@@ -12,6 +12,8 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:textColor="#000000"
+        android:hint="Enter 3 Initials"
+        android:textColorHint="#CCCCFF"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:background="@drawable/layout_blue_bg"
         android:layout_marginTop="5dp"
@@ -25,7 +27,7 @@
         android:layout_height="35dp"
         android:background="@drawable/layout_blue_bg"
         android:gravity="center"
-        android:text="Enter Player Name"
+        android:text="Click to Play"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:layout_gravity="center_horizontal" />
