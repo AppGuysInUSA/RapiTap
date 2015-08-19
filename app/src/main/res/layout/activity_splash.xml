@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="@drawable/rapitaptitle" />
+                android:background="@drawable/rapitaptitle2" />
         </TableRow>
 
         <TableRow
@@ -91,15 +91,59 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bck_grnd_states"
                 android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="empty"
-                android:textSize="36dp"
+                android:textSize="30dp"
                 android:gravity="center"
-                android:id="@+id/openTextView" />
+                android:id="@+id/levelOneBackView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:id="@+id/levelTwoBackView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:id="@+id/levelThreeBackView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:id="@+id/levelFourBackView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:id="@+id/levelFiveBackView"
+                android:layout_weight="1" />
         </TableRow>
 
     </TableLayout>

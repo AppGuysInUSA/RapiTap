@@ -42,10 +42,6 @@ public class SplashActivity extends Activity {
         final int levelOneScore = scorePref.getInt("levelOneScore", 0);
         int levelTwoScore = scorePref.getInt("levelTwoScore", 0);
 
-        final TextView openTextView = (TextView) findViewById(R.id.openTextView);
-        openTextView.setTypeface(myfont);
-        openTextView.setText("Highest Level Reached is "+scorePref.getString("levelUnlocked", "locked"));
-
         if(levelUnlocked.equals("locked")){
 
             final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
@@ -63,6 +59,18 @@ public class SplashActivity extends Activity {
             final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
             resumeGameTextView.setTypeface(myfont);
             resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
+                    startActivity(levelOneIntent);
+                }
+            });
+
+            TextView levelOneBackBtn = (TextView) findViewById(R.id.levelOneBackView);
+            levelOneBackBtn.setTypeface(myfont);
+            levelOneBackBtn.setText("Level 1");
+            levelOneBackBtn.setOnClickListener(new View.OnClickListener() {
+
                 public void onClick(View v) {
 
                     Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
