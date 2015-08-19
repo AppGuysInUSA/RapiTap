@@ -56,6 +56,8 @@ public class SplashActivity extends Activity {
 
         if(levelUnlocked.equals("one")){
 
+            lvloneBackBtn();
+
             final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
             resumeGameTextView.setTypeface(myfont);
             resumeGameTextView.setOnClickListener(new View.OnClickListener() {
@@ -65,21 +67,12 @@ public class SplashActivity extends Activity {
                     startActivity(levelOneIntent);
                 }
             });
-
-            TextView levelOneBackBtn = (TextView) findViewById(R.id.levelOneBackView);
-            levelOneBackBtn.setTypeface(myfont);
-            levelOneBackBtn.setText("Level 1");
-            levelOneBackBtn.setOnClickListener(new View.OnClickListener() {
-
-                public void onClick(View v) {
-
-                    Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
-                    startActivity(levelOneIntent);
-                }
-            });
         }
 
         if(levelUnlocked.equals("two")){
+
+            lvloneBackBtn();
+            lvltwoBackBtn();
 
             final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
             resumeGameTextView.setTypeface(myfont);
@@ -94,6 +87,10 @@ public class SplashActivity extends Activity {
 
         if(levelUnlocked.equals("three")){
 
+            lvloneBackBtn();
+            lvltwoBackBtn();
+            lvlthreeBackBtn();
+
             final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
             resumeGameTextView.setTypeface(myfont);
             resumeGameTextView.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +104,11 @@ public class SplashActivity extends Activity {
 
         if(levelUnlocked.equals("four")){
 
+            lvloneBackBtn();
+            lvltwoBackBtn();
+            lvlthreeBackBtn();
+            lvlfourBackBtn();
+
             final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
             resumeGameTextView.setTypeface(myfont);
             resumeGameTextView.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +121,12 @@ public class SplashActivity extends Activity {
         }
 
         if(levelUnlocked.equals("five")){
+
+            lvloneBackBtn();
+            lvltwoBackBtn();
+            lvlthreeBackBtn();
+            lvlfourBackBtn();
+            lvlfiveBackBtn();
 
             final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
             resumeGameTextView.setTypeface(myfont);
@@ -158,6 +166,86 @@ public class SplashActivity extends Activity {
                 startActivity(highScoreView);
                 //Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
                 //startActivity(levelOneIntent);
+            }
+        });
+    }
+
+    public void lvloneBackBtn () {
+
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
+        TextView levelOneBackBtn = (TextView) findViewById(R.id.levelOneBackView);
+        levelOneBackBtn.setTypeface(myfont);
+        levelOneBackBtn.setText("Level 1");
+        levelOneBackBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent levelOneIntent = new Intent(SplashActivity.this, LevelOneActivity.class);
+                startActivity(levelOneIntent);
+            }
+        });
+    }
+
+    public void lvltwoBackBtn () {
+
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
+        TextView levelTwoBackBtn = (TextView) findViewById(R.id.levelTwoBackView);
+        levelTwoBackBtn.setTypeface(myfont);
+        levelTwoBackBtn.setText("Level 2");
+        levelTwoBackBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent levelTwoIntent = new Intent(SplashActivity.this, LevelTwoActivity.class);
+                startActivity(levelTwoIntent);
+            }
+        });
+    }
+
+    public void lvlthreeBackBtn () {
+
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
+        TextView lvlthreeBackBtn = (TextView) findViewById(R.id.levelThreeBackView);
+        lvlthreeBackBtn.setTypeface(myfont);
+        lvlthreeBackBtn.setText("Level 3");
+        lvlthreeBackBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent levelThreeIntent = new Intent(SplashActivity.this, LevelThreeActivity.class);
+                startActivity(levelThreeIntent);
+            }
+        });
+    }
+
+    public void lvlfourBackBtn () {
+
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
+        TextView lvlfourBackBtn = (TextView) findViewById(R.id.levelFourBackView);
+        lvlfourBackBtn.setTypeface(myfont);
+        lvlfourBackBtn.setText("Level 4");
+        lvlfourBackBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent levelFourIntent = new Intent(SplashActivity.this, LevelFourActivity.class);
+                startActivity(levelFourIntent);
+            }
+        });
+    }
+
+    public void lvlfiveBackBtn () {
+
+        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
+        TextView lvlfiveBackBtn = (TextView) findViewById(R.id.levelFiveBackView);
+        lvlfiveBackBtn.setTypeface(myfont);
+        lvlfiveBackBtn.setText("Level 5");
+        lvlfiveBackBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent levelFiveIntent = new Intent(SplashActivity.this, LevelFiveActivity.class);
+                startActivity(levelFiveIntent);
             }
         });
     }
