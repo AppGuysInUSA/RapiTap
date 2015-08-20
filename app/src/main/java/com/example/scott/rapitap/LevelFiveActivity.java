@@ -13,8 +13,8 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
-//import com.google.android.gms.ads.AdView;
-//import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.AdRequest;
 
 
 public class LevelFiveActivity extends Activity implements OnClickListener {
@@ -34,10 +34,10 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.level_five);
 
-/*        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-*/
+
 
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);

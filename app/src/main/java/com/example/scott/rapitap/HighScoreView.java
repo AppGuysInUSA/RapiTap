@@ -14,8 +14,8 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
-//import com.google.android.gms.ads.AdView;
-//import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.AdRequest;
 
 
 
@@ -29,10 +29,10 @@ public class HighScoreView extends Activity implements OnClickListener{
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.highscoreview);
 
-/*        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-*/
+
 
         // import font
         final TextView hiScoreTitleTextView = (TextView) findViewById(R.id.hiScoreTitleTextView);

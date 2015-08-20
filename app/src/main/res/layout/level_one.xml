@@ -145,7 +145,7 @@
         android:layout_marginRight="4dp"
         android:layout_alignTop="@+id/hiScoreTextView"
         android:layout_toStartOf="@+id/hiScoreTextView" />
-    <!--
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -162,5 +162,5 @@
             </com.google.android.gms.ads.AdView>
 
         </RelativeLayout>
-    -->
+
 </RelativeLayout>
