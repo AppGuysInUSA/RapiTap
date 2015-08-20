@@ -60,7 +60,7 @@
         android:id="@+id/resetView"
         android:layout_width="100dp"
         android:layout_height="35dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/layout_red_bg"
         android:gravity="center"
         android:text="Reset"

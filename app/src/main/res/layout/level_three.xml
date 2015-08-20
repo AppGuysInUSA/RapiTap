@@ -63,7 +63,7 @@
         android:layout_below="@+id/tableLayout"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/layout_red_bg"
         android:gravity="center"
         android:text="Reset"
