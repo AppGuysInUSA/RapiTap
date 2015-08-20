@@ -165,7 +165,6 @@ public class SplashActivity extends Activity {
 
     public void lvloneBackBtn() {
 
-        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         TextView levelOneBackBtn = (TextView) findViewById(R.id.levelOneBackView);
         levelOneBackBtn.setText("LEVEL 1");
         levelOneBackBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.padlock_unlocked_small, 0);
@@ -181,9 +180,9 @@ public class SplashActivity extends Activity {
 
     public void lvltwoBackBtn() {
 
-        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         TextView levelTwoBackBtn = (TextView) findViewById(R.id.levelTwoBackView);
         levelTwoBackBtn.setText("LEVEL 2");
+        levelTwoBackBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.padlock_unlocked_small, 0);
         levelTwoBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -196,10 +195,10 @@ public class SplashActivity extends Activity {
 
     public void lvlthreeBackBtn() {
 
-        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
-        TextView lvlthreeBackBtn = (TextView) findViewById(R.id.levelThreeBackView);
-        lvlthreeBackBtn.setText("LEVEL 3");
-        lvlthreeBackBtn.setOnClickListener(new View.OnClickListener() {
+        TextView lvlThreeBackBtn = (TextView) findViewById(R.id.levelThreeBackView);
+        lvlThreeBackBtn.setText("LEVEL 3");
+        lvlThreeBackBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.padlock_unlocked_small, 0);
+        lvlThreeBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
@@ -211,10 +210,10 @@ public class SplashActivity extends Activity {
 
     public void lvlfourBackBtn() {
 
-        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
-        TextView lvlfourBackBtn = (TextView) findViewById(R.id.levelFourBackView);
-        lvlfourBackBtn.setText("LEVEL 4");
-        lvlfourBackBtn.setOnClickListener(new View.OnClickListener() {
+        TextView lvlFourBackBtn = (TextView) findViewById(R.id.levelFourBackView);
+        lvlFourBackBtn.setText("LEVEL 4");
+        lvlFourBackBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.padlock_unlocked_small, 0);
+        lvlFourBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
@@ -226,10 +225,10 @@ public class SplashActivity extends Activity {
 
     public void lvlfiveBackBtn() {
 
-        Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
-        TextView lvlfiveBackBtn = (TextView) findViewById(R.id.levelFiveBackView);
-        lvlfiveBackBtn.setText("LEVEL 5");
-        lvlfiveBackBtn.setOnClickListener(new View.OnClickListener() {
+        TextView lvlFiveBackBtn = (TextView) findViewById(R.id.levelFiveBackView);
+        lvlFiveBackBtn.setText("LEVEL 5");
+        lvlFiveBackBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.padlock_unlocked_small, 0);
+        lvlFiveBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
