@@ -13,6 +13,8 @@
         android:gravity="center"
         android:textColor="#000000"
         android:hint="Enter 3 Initials"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
         android:textColorHint="#CCCCFF"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:background="@drawable/layout_blue_bg"
