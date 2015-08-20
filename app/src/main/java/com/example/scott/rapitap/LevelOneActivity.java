@@ -62,6 +62,7 @@ public class LevelOneActivity extends Activity implements OnClickListener {
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
         if(levelUnlocked.equals("two") || levelOneScore > 24){
 
+
             TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
             nextLevelView.setTypeface(myfont);
             nextLevelView.setAlpha(1);

@@ -39,8 +39,10 @@ public class SplashActivity extends Activity {
         // Check String Values for Resume Game
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        final int levelOneScore = scorePref.getInt("levelOneScore", 0);
+        int levelOneScore = scorePref.getInt("levelOneScore", 0);
         int levelTwoScore = scorePref.getInt("levelTwoScore", 0);
+        int levelThreeScore = scorePref.getInt("levelThreeScore", 0);
+        int levelFourScore = scorePref.getInt("levelFourScore", 0);
 
         if(levelUnlocked.equals("locked")){
 
@@ -69,7 +71,7 @@ public class SplashActivity extends Activity {
             });
         }
 
-        if(levelUnlocked.equals("two")){
+        if(levelUnlocked.equals("two") || levelOneScore > 24){
 
             lvloneBackBtn();
             lvltwoBackBtn();
@@ -85,7 +87,7 @@ public class SplashActivity extends Activity {
             });
         }
 
-        if(levelUnlocked.equals("three")){
+        if(levelUnlocked.equals("three") || levelTwoScore > 39){
 
             lvloneBackBtn();
             lvltwoBackBtn();
@@ -102,7 +104,7 @@ public class SplashActivity extends Activity {
             });
         }
 
-        if(levelUnlocked.equals("four")){
+        if(levelUnlocked.equals("four") || levelThreeScore > 31){
 
             lvloneBackBtn();
             lvltwoBackBtn();
@@ -120,7 +122,7 @@ public class SplashActivity extends Activity {
             });
         }
 
-        if(levelUnlocked.equals("five")){
+        if(levelUnlocked.equals("five") || levelFourScore > 23){
 
             lvloneBackBtn();
             lvltwoBackBtn();
@@ -175,7 +177,7 @@ public class SplashActivity extends Activity {
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         TextView levelOneBackBtn = (TextView) findViewById(R.id.levelOneBackView);
         levelOneBackBtn.setTypeface(myfont);
-        levelOneBackBtn.setText("Level 1");
+        levelOneBackBtn.setText("LEVEL 1");
         levelOneBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -191,7 +193,7 @@ public class SplashActivity extends Activity {
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         TextView levelTwoBackBtn = (TextView) findViewById(R.id.levelTwoBackView);
         levelTwoBackBtn.setTypeface(myfont);
-        levelTwoBackBtn.setText("Level 2");
+        levelTwoBackBtn.setText("LEVEL 2");
         levelTwoBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -207,7 +209,7 @@ public class SplashActivity extends Activity {
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         TextView lvlthreeBackBtn = (TextView) findViewById(R.id.levelThreeBackView);
         lvlthreeBackBtn.setTypeface(myfont);
-        lvlthreeBackBtn.setText("Level 3");
+        lvlthreeBackBtn.setText("LEVEL 3");
         lvlthreeBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -223,7 +225,7 @@ public class SplashActivity extends Activity {
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         TextView lvlfourBackBtn = (TextView) findViewById(R.id.levelFourBackView);
         lvlfourBackBtn.setTypeface(myfont);
-        lvlfourBackBtn.setText("Level 4");
+        lvlfourBackBtn.setText("LEVEL 4");
         lvlfourBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -239,7 +241,7 @@ public class SplashActivity extends Activity {
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
         TextView lvlfiveBackBtn = (TextView) findViewById(R.id.levelFiveBackView);
         lvlfiveBackBtn.setTypeface(myfont);
-        lvlfiveBackBtn.setText("Level 5");
+        lvlfiveBackBtn.setText("LEVEL 5");
         lvlfiveBackBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
