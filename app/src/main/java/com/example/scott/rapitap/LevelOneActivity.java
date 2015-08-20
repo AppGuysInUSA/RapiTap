@@ -209,7 +209,6 @@ public class LevelOneActivity extends Activity implements OnClickListener {
 
         TextView hiScoreTextView = (TextView) findViewById(R.id.hiScoreTextView);
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
-
         int hiScore = scorePref.getInt("levelOneScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
         playerName1.setText(String.valueOf(scorePref.getString("userName1", "")));

@@ -5,33 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/layout_bg_hs">
 
-
-    <TextView
-        android:id="@+id/hiScoreTitleTextView"
-        android:layout_width="200dp"
-        android:layout_height="43dp"
-        android:gravity="center"
-        android:text="Local High Score"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginLeft="150dp" />
-
-    <TextView
-        android:id="@+id/hiScoreTitleTextView2"
-        android:layout_width="200dp"
-        android:layout_height="43dp"
-        android:gravity="center"
-        android:text="Global High Score"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginLeft="375dp" />
-
     <TextView
         android:id="@+id/mainMenuBtnView"
         android:layout_width="150dp"
@@ -41,22 +14,54 @@
         android:text="Main Menu"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/tableLayout2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp" />
+        android:layout_marginTop="15dp" />
 
     <TableLayout
-        android:layout_width="600dp"
-        android:layout_height="225dp"
-        android:layout_below="@+id/hiScoreTitleTextView"
-        android:layout_marginTop="1dp"
-        android:layout_centerHorizontal="true">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:id="@+id/tableLayout2">
+
+        <TableRow
+            android:id="@+id/tableRowHeader"
+            android:layout_width="match_parent"
+            android:layout_height="10dip"
+            android:background="@drawable/layout_square_table_blue"
+            android:padding="1dip" >
+
+            <TextView
+                android:id="@+id/hiScoreTitleTextView"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="LOCAL HIGH SCORE"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/hiScoreTitleTextView2"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="GLOBAL HIGH SCORE"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:layout_weight="1"/>
+
+        </TableRow>
 
         <TableRow
             android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="10dip"
-            android:padding="5dip" >
+            android:background="@drawable/layout_square_table_yellow"
+            android:padding="1dip" >
 
             <TextView
                 android:id="@+id/level1"
@@ -84,6 +89,7 @@
             <TextView
                 android:id="@+id/playerName1"
                 android:text="Randall"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -95,7 +101,6 @@
             <TextView
                 android:id="@+id/levelOneGlobalHiScoreTextView"
                 android:text="----------"
-                android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -121,7 +126,8 @@
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="10dip"
-            android:padding="5dip" >
+            android:background="@drawable/layout_square_table_yellow"
+            android:padding="1dip" >
 
             <TextView
                 android:id="@+id/level2"
@@ -186,7 +192,8 @@
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="10dip"
-            android:padding="5dip" >
+            android:background="@drawable/layout_square_table_yellow"
+            android:padding="1dip" >
 
             <TextView
                 android:id="@+id/level3"
@@ -251,7 +258,8 @@
             android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
             android:layout_height="10dip"
-            android:padding="5dip" >
+            android:background="@drawable/layout_square_table_yellow"
+            android:padding="1dip" >
 
             <TextView
                 android:id="@+id/level4"
@@ -316,7 +324,8 @@
             android:id="@+id/tableRow5"
             android:layout_width="wrap_content"
             android:layout_height="10dip"
-            android:padding="5dip" >
+            android:background="@drawable/layout_square_table_yellow"
+            android:padding="1dip" >
 
             <TextView
                 android:id="@+id/level5"

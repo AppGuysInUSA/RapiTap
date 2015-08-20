@@ -17,7 +17,7 @@
         <TableRow
             android:background="@drawable/layout_blue_bg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:id="@+id/headerRow">
 
@@ -32,11 +32,12 @@
         <TableRow
             android:id="@+id/row1"
             android:gravity="center"
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bck_grnd_states"
                 android:textColor="#000000"
@@ -46,7 +47,21 @@
                 android:textAlignment="center"
                 android:gravity="center"
                 android:id="@+id/newGameTextView"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="HIGH SCORES"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:id="@+id/highScoreTextView"
+                android:paddingTop="4dp"
+                android:layout_weight="1"/>
 
         </TableRow>
 
@@ -57,7 +72,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bck_grnd_states"
                 android:textColor="#000000"
@@ -66,31 +81,27 @@
                 android:textSize="24dp"
                 android:gravity="center"
                 android:id="@+id/resumeGameTextView"
-                android:paddingTop="4dp" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/row3"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:paddingTop="4dp"
+                android:layout_weight="1"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bck_grnd_states"
                 android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="HIGH SCORES"
+                android:text="RESET ALL STATS"
                 android:textSize="24dp"
                 android:gravity="center"
-                android:id="@+id/highScoreTextView"
-                android:paddingTop="4dp" />
+                android:id="@+id/resetAllTextView"
+                android:paddingTop="4dp"
+                android:layout_weight="1"/>
         </TableRow>
 
         <TableRow
             android:id="@+id/row4"
             android:gravity="center"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -160,7 +171,27 @@
                 android:text="LEVEL 5" />
 
         </TableRow>
+<!--
+        <TableRow
+            android:id="@+id/row3"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text=""
+                android:textSize="24dp"
+                android:gravity="center"
+                android:id="@+id/blankTextView"
+                android:paddingTop="4dp"
+                android:layout_weight="1"/>
+        </TableRow>
+-->
     </TableLayout>
 
 </RelativeLayout>

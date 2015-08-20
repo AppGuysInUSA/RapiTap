@@ -161,6 +161,19 @@ public class SplashActivity extends Activity {
                 startActivity(highScoreView);
             }
         });
+
+        final TextView resetAllTextView = (TextView) findViewById(R.id.resetAllTextView);
+        resetAllTextView.setTypeface(myfont);
+        resetAllTextView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+                SharedPreferences.Editor scoreEditor = scorePref.edit();
+                scoreEditor.clear().commit();
+                finish();
+                startActivity(getIntent());
+            }
+        });
     }
 
     public void lvloneBackBtn() {
