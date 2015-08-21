@@ -55,16 +55,17 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
 
         int levelFiveScore = scorePref.getInt("levelFiveScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        if(levelUnlocked.equals("five") || levelFiveScore > 12){
+        if(levelUnlocked.equals("finale") || levelFiveScore > 13){
 
             TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
+            nextLevelView.setText("Congrats!");
             nextLevelView.setTypeface(myfont);
             nextLevelView.setAlpha(1);
             nextLevelView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    //Intent levelTwoIntent = new Intent(LevelFiveActivity.this, LevelFiveActivity.class);
-                    //finish();
-                    //startActivity(levelTwoIntent);
+                    Intent finaleIntent = new Intent(LevelFiveActivity.this, FinaleActivity.class);
+                    finish();
+                    startActivity(finaleIntent);
                 }
             });
         } else {
@@ -77,10 +78,6 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
 
         final TextView roundOverView = (TextView) findViewById(R.id.roundOverView);
         roundOverView.setTypeface(myfont);
-
-        final TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
-        nextLevelView.setTypeface(myfont);
-        nextLevelView.setAlpha(0);
 
         final TextView timerView = (TextView) findViewById(R.id.timerView);
         timerView.setTypeface(myfont);
@@ -129,11 +126,10 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
                     new CountDownTimer(1000, 1000) {
 
                         public void onTick(long millisUntilFinished) {
-                            timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000 + " ms" +
-                                    millisUntilFinished / 1000);
+                            timerView.setText("Seconds Remaining: " + millisUntilFinished / 1000);
                             tapBtn.setBackgroundResource(R.drawable.btn_states);
                             roundStarted = true;
-
+/*
                             if (millisUntilFinished  > 0.500 && tapCount > 7){
                                 roundOverView.setText("Sizzlin!");
                                 tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
@@ -142,7 +138,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
                             if (millisUntilFinished  > 0.250 && tapCount > 3){
                                 roundOverView.setText("Lightnin!");
                                 tapBtn.setBackgroundResource(R.drawable.btn_bonus_states);
-                            }
+                            }   */
                         }
 
                         public void onFinish() {
@@ -150,15 +146,18 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
                             tapBtn.setBackgroundResource(R.drawable.redbutton);
                             newLevelFiveScore = tapCount;
 
-                            if (timerView.getText() == ("Times Up!") && tapCount < 13) {
+                            if (timerView.getText() == ("Times Up!") && tapCount < 14) {
                                 roundOverView.setText("Nope!");
                                 resetView.setText("Try Again");
                                 roundStarted = false;
                             }
 
-                            if (timerView.getText() == ("UNBELIEVABLE!") && tapCount > 12) {
-                                roundOverView.setText("You did that!");
+                            if (timerView.getText() == ("Times Up!") && tapCount > 13) {
+                                roundOverView.setText("UNBELIEVABLE!!!");
+                                TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
                                 nextLevelView.setAlpha(1);
+                                nextLevelView.setText("Congrats!");
+                                resetView.setText("Replay");
                                 roundStarted = false;
                             }
 
@@ -171,6 +170,15 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
                         }
                     }.start();
                 }
+
+                TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
+                nextLevelView.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent finaleIntent = new Intent(LevelFiveActivity.this, FinaleActivity.class);
+                        finish();
+                        startActivity(finaleIntent);
+                    }
+                });
             }
         });
     }
@@ -195,7 +203,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
 
         if (scorePref.getInt("levelFiveScore", 0) > 13){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
-            scoreEditor.putString("levelUnlocked", "five");
+            scoreEditor.putString("levelUnlocked", "finale");
             scoreEditor.apply();
         }
     }

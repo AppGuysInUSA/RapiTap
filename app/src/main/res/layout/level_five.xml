@@ -97,28 +97,6 @@
         android:layout_toStartOf="@+id/tapCountTextView" />
 
     <TextView
-        android:id="@+id/levelRulesView"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="You&apos;ve made it to the final test!... Level 5 you have 1 seconds to tap at least 13 times... is it even possible?"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000"
-        android:textIsSelectable="true"
-        android:textSize="18dp"
-        android:layout_alignTop="@+id/roundOverView"
-        android:layout_toStartOf="@+id/tapCountTextView" />
-
-    <TextView
-        android:id="@+id/roundOverView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tapCountTextView"
-        android:layout_alignStart="@+id/levelRulesView"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000"
-        android:textIsSelectable="true" />
-
-    <TextView
         android:id="@+id/hiScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -155,6 +133,31 @@
                 ads:adSize="BANNER"
                 ads:adUnitId="@string/banner_ad_unit_id">
             </com.google.android.gms.ads.AdView>
+
+            <TextView
+                android:id="@+id/roundOverView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:textIsSelectable="true"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="44dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/levelRulesView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="You&apos;ve made it to the final test!... Level 5 you have 1 seconds to tap at least 13 times... is it even possible?"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:textIsSelectable="true"
+                android:textSize="18dp"
+                android:layout_below="@+id/roundOverView"
+                android:layout_alignStart="@+id/roundOverView"
+                android:layout_marginTop="35dp" />
 
         </RelativeLayout>
 

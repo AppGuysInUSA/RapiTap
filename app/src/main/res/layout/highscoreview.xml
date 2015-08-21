@@ -88,7 +88,7 @@
 
             <TextView
                 android:id="@+id/playerName1"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -111,7 +111,7 @@
 
             <TextView
                 android:id="@+id/globalPlayerName1"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -154,7 +154,7 @@
 
             <TextView
                 android:id="@+id/playerName2"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -177,7 +177,7 @@
 
             <TextView
                 android:id="@+id/globalPlayerName2"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -220,7 +220,7 @@
 
             <TextView
                 android:id="@+id/playerName3"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -243,7 +243,7 @@
 
             <TextView
                 android:id="@+id/globalPlayerName3"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -286,7 +286,7 @@
 
             <TextView
                 android:id="@+id/playerName4"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -309,7 +309,7 @@
 
             <TextView
                 android:id="@+id/globalPlayerName4"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -352,7 +352,7 @@
 
             <TextView
                 android:id="@+id/playerName5"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"
@@ -375,7 +375,7 @@
 
             <TextView
                 android:id="@+id/globalPlayerName5"
-                android:text="Randall"
+                android:text="Player"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#000000"

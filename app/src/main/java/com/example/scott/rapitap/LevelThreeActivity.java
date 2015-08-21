@@ -155,6 +155,7 @@ public class LevelThreeActivity extends Activity implements OnClickListener {
                                 roundOverView.setText("Fantastic!");
                                 TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
                                 nextLevelView.setAlpha(1);
+                                resetView.setText("Replay");
                                 roundStarted = false;
                             }
 
