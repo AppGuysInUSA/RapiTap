@@ -150,7 +150,7 @@
                 android:id="@+id/levelRulesView"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="You&apos;ve made it to the final test!... Level 5 you have 1 seconds to tap at least 13 times... is it even possible?"
+                android:text="You&apos;ve made it to the final test!... Level 5 you have 1 seconds to tap at least 14 times... is it even possible?"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000000"
                 android:textIsSelectable="true"
