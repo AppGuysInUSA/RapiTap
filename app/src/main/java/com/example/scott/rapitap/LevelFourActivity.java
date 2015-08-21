@@ -55,7 +55,7 @@ public class LevelFourActivity extends Activity implements OnClickListener {
 
         int levelFourScore = scorePref.getInt("levelFourScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        if(levelUnlocked.equals("five") || levelFourScore > 13){
+        if(levelUnlocked.equals("five") || levelFourScore > 23){
 
             TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
             nextLevelView.setTypeface(myfont);
@@ -151,7 +151,7 @@ public class LevelFourActivity extends Activity implements OnClickListener {
                                 roundStarted = false;
                             }
 
-                            if (timerView.getText() == ("Times Up!") && tapCount > 13) {
+                            if (timerView.getText() == ("Times Up!") && tapCount > 23) {
                                 roundOverView.setText("You did that!");
                                 TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
                                 nextLevelView.setAlpha(1);
