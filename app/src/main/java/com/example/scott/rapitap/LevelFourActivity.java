@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,6 +17,16 @@ import android.widget.TextView;
 import android.view.View.OnClickListener;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.AdRequest;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
 
 
 public class LevelFourActivity extends Activity implements OnClickListener {
@@ -191,6 +203,8 @@ public class LevelFourActivity extends Activity implements OnClickListener {
             scoreEditor.putInt("levelFourScore", newLevelFourScore);
             scoreEditor.putString("userName4", scorePref.getString("newUserName", ""));
             scoreEditor.apply();
+
+            new ScoreAsyncTask().execute((Void) null);
         }
 
         if (scorePref.getInt("levelFourScore", 0) > 0){
@@ -214,6 +228,40 @@ public class LevelFourActivity extends Activity implements OnClickListener {
         int hiScore = scorePref.getInt("levelFourScore", 0);
         hiScoreTextView.setText(String.valueOf(hiScore));
         playerName4.setText(String.valueOf(scorePref.getString("userName4", "")));
+    }
+
+    class ScoreAsyncTask extends AsyncTask<Void, Void, Boolean> {
+
+        SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);
+        String playerName = String.valueOf(scorePref.getString("userName4", ""));
+        int playerLevel = 4;
+        int playerScore = scorePref.getInt("levelFourScore", 0);
+
+
+        private void postData(int playerLevel, String playerName, int playerScore) {
+
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost("http://www.appguysinusa.com/insert.php");
+
+            try {
+                ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
+                nameValuePairs.add(new BasicNameValuePair("playerLevel", String.valueOf(playerLevel)));
+                nameValuePairs.add(new BasicNameValuePair("playerName", playerName));
+                nameValuePairs.add(new BasicNameValuePair("playerScore", String.valueOf(playerScore)));
+                httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                HttpResponse response = httpclient.execute(httppost);
+            }
+            catch(Exception e)
+            {
+                Log.e("log_tag", "Error:  " + e.toString());
+            }
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            postData(playerLevel, playerName, playerScore);
+            return null;
+        }
     }
 
     @Override
