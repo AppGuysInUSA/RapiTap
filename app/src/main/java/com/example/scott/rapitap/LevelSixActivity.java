@@ -238,7 +238,7 @@ public class LevelSixActivity extends Activity implements OnClickListener {
             scoreEditor.apply();
         }
 
-        if (scorePref.getInt("levelSixScore", 0) > 99){
+        if (scorePref.getInt("levelSixScore", 0) > 104){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
             scoreEditor.putString("levelUnlocked", "finale");
             scoreEditor.apply();
