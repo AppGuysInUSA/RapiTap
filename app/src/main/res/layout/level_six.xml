@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_bg">
+
+    <TableLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@drawable/gradient_overlay"></TableLayout>
+
+    <TableLayout
+        android:id="@+id/gameTbl"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_height="125dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical">
+
+        <TableRow android:gravity="center_vertical|center_horizontal">
+
+            <ImageButton
+                android:id="@+id/tapBtnLeft"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/greenbutton" />
+
+            <TextView
+                android:id="@+id/levelRulesView"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="Lets see how good you are with two hands!... Level 6 you have 10 seconds to tap at least 100 times... Start with the left, alternating each tap!"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:textIsSelectable="true"
+                android:textSize="16dp"/>
+
+            <ImageButton
+                android:id="@+id/tapBtnRight"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/greenbutton" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/menuTbl"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/gameTbl"
+        android:layout_centerHorizontal="true">
+
+        <TableRow android:gravity="center_vertical|center_horizontal">
+
+            <TextView
+                android:id="@+id/mainMenuBtnView"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:background="@drawable/layout_blue_bg"
+                android:gravity="center"
+                android:text="MAIN MENU"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/resetView"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/layout_red_bg"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="RESET"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/nextLevelView"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/layout_blue_bg"
+                android:gravity="center"
+                android:text="NEXT LEVEL"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:paddingTop="5dp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/timeTbl"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/layout_bg_dark_yellow">
+
+        <TableRow android:gravity="center_vertical|center_horizontal"
+            android:paddingTop="3dp">
+
+            <TextView
+                android:id="@+id/tapCountTextView"
+                android:layout_width="150dp"
+                android:layout_height="43dp"
+                android:text="BEGIN LEVEL 6"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:layout_weight="1"
+                android:layout_centerHorizontal="true"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/timerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="00:00"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:layout_weight="2"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/hiScoreTitleTextView"
+                android:layout_width="150dp"
+                android:layout_height="43dp"
+                android:gravity="center"
+                android:text="HIGH SCORE"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_weight="1"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/nameTbl"
+        android:layout_width="match_parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeTbl"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignStart="@+id/timeTbl"
+        android:layout_alignEnd="@+id/timeTbl">
+
+        <TableRow
+            android:layout_marginTop="0dp"
+            android:gravity="center_vertical|center_horizontal">
+
+            <TextView
+                android:layout_width="180dp"/>
+
+            <TextView
+                android:layout_width="180dp"/>
+
+            <TextView
+                android:id="@+id/playerName6"
+                android:text="-----"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/hiScoreTextView"
+                android:layout_height="wrap_content"
+                android:text="-----"
+                android:layout_width="50dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/roundOverTbl"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="112dp">
+
+        <TableRow
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal">
+
+            <TextView
+                android:id="@+id/roundOverView"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
