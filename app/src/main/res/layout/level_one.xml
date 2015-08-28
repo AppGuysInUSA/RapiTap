@@ -6,7 +6,7 @@
     android:background="@drawable/layout_bg">
 
     <TableLayout
-        android:id="@+id/tableLayout"
+        android:id="@+id/gameTbl"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
@@ -26,7 +26,7 @@
         android:id="@+id/tapCountTextView"
         android:layout_width="200dp"
         android:layout_height="43dp"
-        android:layout_above="@+id/tableLayout"
+        android:layout_above="@+id/gameTbl"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="Begin Level 1"
@@ -61,7 +61,7 @@
         android:id="@+id/resetView"
         android:layout_width="100dp"
         android:layout_height="35dp"
-        android:layout_below="@+id/tableLayout"
+        android:layout_below="@+id/gameTbl"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="15dp"
@@ -105,7 +105,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="24dp"
-        android:layout_toStartOf="@+id/tableLayout"
+        android:layout_toStartOf="@+id/gameTbl"
         android:text="To beat Level 1 you have 5 seconds to tap at least 25 times... Easy Peezy!"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"

@@ -25,15 +25,15 @@
         android:paddingRight="10dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="28dp"
-        android:id="@+id/tableLayout2">
+        android:layout_marginTop="15dp"
+        android:id="@+id/tableLayout2"
+        android:layout_alignParentEnd="true">
 
         <TableRow
             android:id="@+id/tableRowHeader"
             android:layout_width="match_parent"
-            android:layout_height="10dip"
-            android:background="@drawable/layout_square_table_blue"
-            android:padding="1dip" >
+            android:layout_height="10dp"
+            android:background="@drawable/layout_square_table_blue">
 
             <TextView
                 android:id="@+id/hiScoreTitleTextView"
@@ -43,7 +43,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000000"
                 android:layout_weight="1"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/hiScoreTitleTextView2"
@@ -52,7 +53,8 @@
                 android:text="GLOBAL HIGH SCORE"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000000"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textSize="18dp" />
 
         </TableRow>
 
@@ -386,8 +388,73 @@
 
         </TableRow>
 
-    </TableLayout>
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="10dip"
+            android:background="@drawable/layout_square_table_yellow"
+            android:padding="1dip" >
 
+            <TextView
+                android:id="@+id/level6"
+                android:text="Level 6"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/levelSixHiScoreTextView"
+                android:text="----------"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/playerName6"
+                android:text="Player"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/levelSixGlobalHiScoreTextView"
+                android:text="----------"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/globalPlayerName6"
+                android:text="Player"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:gravity="left"
+                android:layout_weight="1"/>
+
+        </TableRow>
+
+    </TableLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"

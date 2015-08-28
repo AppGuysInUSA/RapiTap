@@ -50,7 +50,6 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
         // import font
         final TextView tapCountTextView = (TextView) findViewById(R.id.tapCountTextView);
         Typeface myfont = Typeface.createFromAsset(getAssets(), "fonts/ppetrial.otf");
@@ -61,23 +60,22 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
 
         String userName = scorePref.getString("userName5", "");
 
-        playerName5 = (TextView) findViewById(R.id.playerName5);
+        playerName5 = (TextView) findViewById(R.id.playerName6);
         playerName5.setTypeface(myfont);
         playerName5.setText(String.valueOf(userName));
 
         int levelFiveScore = scorePref.getInt("levelFiveScore", 0);
         String levelUnlocked = scorePref.getString("levelUnlocked", "locked");
-        if(levelUnlocked.equals("finale") || levelFiveScore > 13){
+        if(levelUnlocked.equals("six") || levelFiveScore > 13){
 
             TextView nextLevelView = (TextView) findViewById(R.id.nextLevelView);
-            nextLevelView.setText("Congrats!");
             nextLevelView.setTypeface(myfont);
             nextLevelView.setAlpha(1);
             nextLevelView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent finaleIntent = new Intent(LevelFiveActivity.this, FinaleActivity.class);
+                    Intent levelSixIntent = new Intent(LevelFiveActivity.this, LevelSixActivity.class);
                     finish();
-                    startActivity(finaleIntent);
+                    startActivity(levelSixIntent);
                 }
             });
         } else {
@@ -104,7 +102,6 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
         levelRulesView.setTypeface(myfont);
 
         displayScore();
-
 
         // Start of buttons
         final TextView resetView = (TextView) findViewById(R.id.resetView);
@@ -217,7 +214,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
 
         if (scorePref.getInt("levelFiveScore", 0) > 13){
             SharedPreferences.Editor scoreEditor = scorePref.edit();
-            scoreEditor.putString("levelUnlocked", "finale");
+            scoreEditor.putString("levelUnlocked", "six");
             scoreEditor.apply();
         }
     }
@@ -232,6 +229,7 @@ public class LevelFiveActivity extends Activity implements OnClickListener {
         playerName5.setText(String.valueOf(scorePref.getString("userName5", "")));
     }
 
+    // Gather scores for DB
     class ScoreAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
         SharedPreferences scorePref = getSharedPreferences("userScore", Context.MODE_PRIVATE);

@@ -112,7 +112,7 @@
                 android:drawableRight="@drawable/padlock_locked_small"
                 android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="20dp"
+                android:textSize="14dp"
                 android:gravity="center"
                 android:id="@+id/levelOneBackView"
                 android:layout_weight="1"
@@ -125,7 +125,7 @@
                 android:drawableRight="@drawable/padlock_locked_small"
                 android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="20dp"
+                android:textSize="14dp"
                 android:gravity="center"
                 android:id="@+id/levelTwoBackView"
                 android:layout_weight="1"
@@ -138,7 +138,7 @@
                 android:drawableRight="@drawable/padlock_locked_small"
                 android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="20dp"
+                android:textSize="14dp"
                 android:gravity="center"
                 android:id="@+id/levelThreeBackView"
                 android:layout_weight="1"
@@ -151,7 +151,7 @@
                 android:drawableRight="@drawable/padlock_locked_small"
                 android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="20dp"
+                android:textSize="14dp"
                 android:gravity="center"
                 android:id="@+id/levelFourBackView"
                 android:layout_weight="1"
@@ -164,11 +164,24 @@
                 android:drawableRight="@drawable/padlock_locked_small"
                 android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="20dp"
+                android:textSize="14dp"
                 android:gravity="center"
                 android:id="@+id/levelFiveBackView"
                 android:layout_weight="1"
                 android:text="LEVEL 5" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bck_grnd_states"
+                android:drawableRight="@drawable/padlock_locked_small"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:id="@+id/levelSixBackView"
+                android:layout_weight="1"
+                android:text="LEVEL 6" />
 
         </TableRow>
 <!--

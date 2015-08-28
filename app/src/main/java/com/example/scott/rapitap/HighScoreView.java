@@ -4,15 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 import com.google.android.gms.ads.AdView;
@@ -43,6 +40,7 @@ public class HighScoreView extends Activity implements OnClickListener{
         new GetAllScoresTask3().execute(new ApiConnector());
         new GetAllScoresTask4().execute(new ApiConnector());
         new GetAllScoresTask5().execute(new ApiConnector());
+        new GetAllScoresTask6().execute(new ApiConnector());
 
         // import font
         final TextView hiScoreTitleTextView = (TextView) findViewById(R.id.hiScoreTitleTextView);
@@ -58,6 +56,7 @@ public class HighScoreView extends Activity implements OnClickListener{
         int currentLevelThreeHighScore = scorePref.getInt("levelThreeScore", 0);
         int currentLevelFourHighScore = scorePref.getInt("levelFourScore", 0);
         int currentLevelFiveHighScore = scorePref.getInt("levelFiveScore", 0);
+        int currentLevelSixHighScore = scorePref.getInt("levelSixScore", 0);
 
         // Bring in hi score user name from each level
         String userName1 = (scorePref.getString("userName1", ""));
@@ -65,6 +64,7 @@ public class HighScoreView extends Activity implements OnClickListener{
         String userName3 = (scorePref.getString("userName3", ""));
         String userName4 = (scorePref.getString("userName4", ""));
         String userName5 = (scorePref.getString("userName5", ""));
+        String userName6 = (scorePref.getString("userName6", ""));
 
         // Set Hi-Score int to String value
         final TextView levelOneHiScoreTextView = (TextView) findViewById(R.id.levelOneHiScoreTextView);
@@ -88,6 +88,10 @@ public class HighScoreView extends Activity implements OnClickListener{
         levelFiveHiScoreTextView.setTypeface(myfont);
         levelFiveHiScoreTextView.setText(String.valueOf(currentLevelFiveHighScore));
 
+        final TextView levelSixHiScoreTextView = (TextView) findViewById(R.id.levelSixHiScoreTextView);
+        levelSixHiScoreTextView.setTypeface(myfont);
+        levelSixHiScoreTextView.setText(String.valueOf(currentLevelSixHighScore));
+
         ///////////// Levels ///////////////
 
         final TextView level1 = (TextView) findViewById(R.id.level1);
@@ -104,6 +108,9 @@ public class HighScoreView extends Activity implements OnClickListener{
 
         final TextView level5 = (TextView) findViewById(R.id.level5);
         level5.setTypeface(myfont);
+
+        final TextView level6 = (TextView) findViewById(R.id.level6);
+        level6.setTypeface(myfont);
 
         ///////////// Local Player Names ///////////////
 
@@ -127,6 +134,10 @@ public class HighScoreView extends Activity implements OnClickListener{
         playerName5.setTypeface(myfont);
         playerName5.setText(userName5);
 
+        final TextView playerName6 = (TextView) findViewById(R.id.playerName6);
+        playerName6.setTypeface(myfont);
+        playerName6.setText(userName6);
+
         ///////////// Global Player Names ///////////////
 
         final TextView globalPlayerName1 = (TextView) findViewById(R.id.globalPlayerName1);
@@ -144,6 +155,9 @@ public class HighScoreView extends Activity implements OnClickListener{
         final TextView globalPlayerName5 = (TextView) findViewById(R.id.globalPlayerName5);
         globalPlayerName5.setTypeface(myfont);
 
+        final TextView globalPlayerName6 = (TextView) findViewById(R.id.globalPlayerName6);
+        globalPlayerName6.setTypeface(myfont);
+
         ////////////// Global High Scores ///////////////
 
         final TextView levelOneGlobalHiScoreTextView = (TextView) findViewById(R.id.levelOneGlobalHiScoreTextView);
@@ -158,8 +172,8 @@ public class HighScoreView extends Activity implements OnClickListener{
         final TextView levelFourGlobalHiScoreTextView = (TextView) findViewById(R.id.levelFourGlobalHiScoreTextView);
         levelFourGlobalHiScoreTextView.setTypeface(myfont);
 
-        final TextView levelFiveGlobalHiScoreTextView = (TextView) findViewById(R.id.levelFiveGlobalHiScoreTextView);
-        levelFiveGlobalHiScoreTextView.setTypeface(myfont);
+        final TextView levelSixGlobalHiScoreTextView = (TextView) findViewById(R.id.levelSixGlobalHiScoreTextView);
+        levelSixGlobalHiScoreTextView.setTypeface(myfont);
 
 
         final TextView mainMenuBtnView = (TextView) findViewById(R.id.mainMenuBtnView);
@@ -303,6 +317,32 @@ public class HighScoreView extends Activity implements OnClickListener{
 
     }
 
+    // Level Six
+    public void setTextToGlobalScoreViewSix(JSONArray jsonArray6)
+    {
+        String gpn6  = "";
+        int gpn6score = 0;
+        for(int i=0; i<jsonArray6.length();i++){
+
+            JSONObject json = null;
+            try {
+                json = jsonArray6.getJSONObject(i);
+                gpn6 = json.getString("NAME");
+                gpn6score = json.getInt("SCORE");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+        TextView globalPlayerName6 = (TextView) findViewById(R.id.globalPlayerName6);
+        globalPlayerName6.setText(gpn6);
+
+        TextView levelSixGlobalHiScoreTextView = (TextView) findViewById(R.id.levelSixGlobalHiScoreTextView);
+        levelSixGlobalHiScoreTextView.setText(String.valueOf(gpn6score));
+
+    }
+
     private class GetAllScoresTask extends AsyncTask<ApiConnector,Long,JSONArray>
     {
         @Override
@@ -393,6 +433,25 @@ public class HighScoreView extends Activity implements OnClickListener{
         protected void onPostExecute(JSONArray jsonArray5) {
 
             setTextToGlobalScoreViewFive(jsonArray5);
+
+        }
+
+    }
+
+    private class GetAllScoresTask6 extends AsyncTask<ApiConnector,Long,JSONArray>
+    {
+        @Override
+        protected JSONArray doInBackground(ApiConnector... params) {
+
+            // it is executed on Background thread
+
+            return params[0].GetAllScoresLevelSix();
+        }
+
+        @Override
+        protected void onPostExecute(JSONArray jsonArray6) {
+
+            setTextToGlobalScoreViewSix(jsonArray6);
 
         }
 

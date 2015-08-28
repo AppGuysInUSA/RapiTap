@@ -43,6 +43,7 @@ public class SplashActivity extends Activity {
         int levelTwoScore = scorePref.getInt("levelTwoScore", 0);
         int levelThreeScore = scorePref.getInt("levelThreeScore", 0);
         int levelFourScore = scorePref.getInt("levelFourScore", 0);
+        int levelFiveScore = scorePref.getInt("levelFiveScore", 0);
 
         if (levelUnlocked.equals("locked")) {
 
@@ -137,6 +138,26 @@ public class SplashActivity extends Activity {
 
                     Intent levelFiveIntent = new Intent(SplashActivity.this, LevelFiveActivity.class);
                     startActivity(levelFiveIntent);
+                }
+            });
+        }
+
+        if (levelUnlocked.equals("six") || levelFiveScore > 13) {
+
+            lvloneBackBtn();
+            lvltwoBackBtn();
+            lvlthreeBackBtn();
+            lvlfourBackBtn();
+            lvlfiveBackBtn();
+            lvlsixBackBtn();
+
+            final TextView resumeGameTextView = (TextView) findViewById(R.id.resumeGameTextView);
+            resumeGameTextView.setTypeface(myfont);
+            resumeGameTextView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent levelSixIntent = new Intent(SplashActivity.this, LevelSixActivity.class);
+                    startActivity(levelSixIntent);
                 }
             });
         }
@@ -247,6 +268,21 @@ public class SplashActivity extends Activity {
 
                 Intent levelFiveIntent = new Intent(SplashActivity.this, LevelFiveActivity.class);
                 startActivity(levelFiveIntent);
+            }
+        });
+    }
+
+    public void lvlsixBackBtn() {
+
+        TextView lvlFiveBackBtn = (TextView) findViewById(R.id.levelSixBackView);
+        lvlFiveBackBtn.setText("LEVEL 6");
+        lvlFiveBackBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.padlock_unlocked_small, 0);
+        lvlFiveBackBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent levelSixIntent = new Intent(SplashActivity.this, LevelSixActivity.class);
+                startActivity(levelSixIntent);
             }
         });
     }
